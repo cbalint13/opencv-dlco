@@ -1,4 +1,4 @@
-**Dataset Folder**
+**Image Patch Dataset Folder**
 
 * Unzip here http://www.cs.ubc.ca/~mbrown/patchdata/patchdata.html main datasets: liberty, notredame, yosemite.
 * The final structure should look like the one below:

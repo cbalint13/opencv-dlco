@@ -1,6 +1,6 @@
 **Distances Folder**
 
-* Folder here contains descriptor distances after [3-compdist.sh].
+* Folder here contains descriptor distances after [03-compdist.sh].
 * The structure should look like one below:
 
 ```
