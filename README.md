@@ -28,7 +28,7 @@ Bug reports, suggestions & improvements are welcome !
 
 ---------------------------------------------------------------------------------------
 
-* Original porject: http://www.robots.ox.ac.uk/~vgg/software/learn_desc/
+* Original project: http://www.robots.ox.ac.uk/~vgg/software/learn_desc/
 
 [1] K. Simonyan, A. Vedaldi, A. Zisserman
 Learning Local Feature Descriptors Using Convex Optimisation
