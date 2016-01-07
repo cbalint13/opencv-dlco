@@ -82,7 +82,7 @@ static Mat get_PR_filter( int PatchSize, double x0, double y0, double sigma )
 int main( int argc, char **argv )
 {
 
-    feenableexcept(FE_DIVBYZERO | FE_INVALID | FE_OVERFLOW | FE_UNDERFLOW | FE_INVALID);
+    feenableexcept( FE_DIVBYZERO | FE_INVALID | FE_OVERFLOW | FE_UNDERFLOW );
 
     // hyperparams
     int nr = 32;

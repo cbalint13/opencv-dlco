@@ -54,7 +54,7 @@ using namespace hdf;
 int main( int argc, char **argv )
 {
 
-    feenableexcept(FE_DIVBYZERO | FE_INVALID | FE_OVERFLOW | FE_UNDERFLOW | FE_INVALID);
+    feenableexcept( FE_DIVBYZERO | FE_INVALID | FE_OVERFLOW | FE_UNDERFLOW );
 
     // size of chunks
     int sChunk = 128;
