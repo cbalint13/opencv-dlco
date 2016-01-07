@@ -15,7 +15,7 @@ descriptors of patch-pairs constructed by `filter.h5` full layout.
 (04) *04-prlearn.sh* will learn low dimensional efficient pool-regions over
 the `filter.h5` using precomputed distances. This may take very long time
 even using GPU, up to ~1 week given actual 300 combinations of mu and gamma
-regularisation parameters over the three datasets.
+regularization parameters over the three datasets.
 
 (05) *05-prstats.sh* will compute and log performance statistics for all
 learnt pool-region filters like: false positive rate, area under curve and
