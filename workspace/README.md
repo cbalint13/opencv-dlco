@@ -1,9 +1,7 @@
-# opencv-dlco
-OpenCV DLCO (Descriptor Learning Using Convex Optimisation)
------------------------------------------------------------------------------
+**OpenCV DLCO (Descriptor Learning Using Convex Optimisation)**
+
 
 * Workflow for the DLCO training process:
-
 
 (01) *01-export.sh* will convert M. Brown [1] image patch dataset to local
 HDF5 layout. See `dataset` folder for preparation and details.

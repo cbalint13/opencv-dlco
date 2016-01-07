@@ -1,7 +1,5 @@
-# opencv-dlco
----------------------------------------------------------------------------------------
 
-OpenCV DLCO (Descriptor Learning Using Convex Optimisation)
+**OpenCV DLCO (Descriptor Learning Using Convex Optimisation)**
 
 
  This is OpenCV implementation of DLCO [1], [2] and [3]. It has booth trainer
