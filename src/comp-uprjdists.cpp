@@ -217,7 +217,7 @@ int main( int argc, char **argv )
     // close
     h5im->close();
 
-    printf( "    Load Learnt Filters: [%s]\n", PrjH5Filename );
+    printf( "Load Learnt Filters: [%s]#%i\n", PrjH5Filename, widx );
 
     // % w = repmat(w', 8, 1);
     // % w = w(:);
@@ -232,7 +232,7 @@ int main( int argc, char **argv )
 
     // only specified w matrix
     int offset[2] = { widx,       0 };
-    int counts[2] = {    1, dims[2] };
+    int counts[2] = {    1, dims[1] };
     h5io->dsread( w, "w", offset, counts );
 
     h5io->close();

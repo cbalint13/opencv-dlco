@@ -21,7 +21,7 @@ do
     if [ ! -f descs/$ds-$pr-unproj.h5 ]
     then
       ulimit -S -c 0
-      ../bin/comp-uprjdists filters.h5 $img -prj $prj_file -id $prj_id -out descs/$ds-$pr-unproj.h5
+      ../bin/comp-uprjdists filters.h5 $img -prj pr-learn/$prj_file -id $prj_id -out descs/$ds-$pr-unproj.h5
     fi
 
   done
