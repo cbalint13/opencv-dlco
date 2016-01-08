@@ -182,6 +182,10 @@ int main( int argc, char **argv )
 
     Ptr<HDF5> h5im = open( ImgH5Filename );
 
+    Mat TrainPairs;
+    cout << "Load Indices." << endl;
+    h5im->dsread( TrainPairs, "Indices" );
+
     // get dimensions
     vector<int> ISize = h5im->dsgetsize( "Patches" );
 
@@ -246,6 +250,9 @@ int main( int argc, char **argv )
     Mat Descs( sChunk, sPRFilters.rows * 8, CV_32F );
 
     Ptr<HDF5> h5id = open( OutH5Filename );
+
+    // write TrainPairs
+    h5id->dswrite( TrainPairs, "Indices" );
 
     // create hdf storage
     int dchunks[2] = { sChunk, 1 };

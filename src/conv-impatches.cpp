@@ -153,8 +153,10 @@ int main( int argc, char **argv )
         Indices.at<int>(idx,2) = IdPatch2; Indices.at<int>(idx,3) = IdPoint2;
 
         // get max id
-        if ( IdPatch1 > NumPatches)
+        if ( IdPatch1 > NumPatches )
           NumPatches = IdPatch1;
+        if ( IdPatch2 > NumPatches )
+          NumPatches = IdPatch2;
       }
       nLastTick = TermProgress( (double)i / (double)NumLines, nLastTick );
 

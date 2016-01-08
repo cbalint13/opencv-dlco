@@ -148,7 +148,7 @@ int main( int argc, char **argv )
 
     Mat TrainPairs;
     Ptr<HDF5> h5im = open( ImgH5Filename );
-    cout << "Load Indices" << endl;
+    cout << "Load Indices." << endl;
     h5im->dsread( TrainPairs, "Indices" );
 
     // get dimensions
@@ -241,10 +241,9 @@ int main( int argc, char **argv )
       #pragma omp parallel for schedule(dynamic) shared(chunk)
       for ( int k = 0; k < sChunk; k++ )
       {
-
          if ( ( i + k ) >= TrainPairs.rows )
            continue;
-
+         // 3DPointID equals
          if ( TrainPairs.at<int32_t>( i + k, 1 )
           ==  TrainPairs.at<int32_t>( i + k, 3 ) )
            Label.at<uchar>( k ) = 1;
