@@ -264,7 +264,7 @@ int main( int argc, char **argv )
     nLastTick = TermProgress( 1.0f, nLastTick );
 
     cuda::GpuMat prfilters;
-    Mat Desc( 1, PRFilters.rows / 8, CV_32F );
+    Mat Dist( 1, PRFilters.rows / 8, CV_32F );
 
     // query GPU
     cuda::DeviceInfo info( cuda::getDevice() );
@@ -283,7 +283,7 @@ int main( int argc, char **argv )
     cout << "Start Compute L2 distances." << endl;
 
     // create dataset
-    Mat Descs( sChunk, PRFilters.rows / 8, CV_32F );
+    Mat Dists( sChunk, PRFilters.rows / 8, CV_32F );
 
     // create storage
     int dchunks[2] = { sChunk, PRFilters.rows / 8 };
@@ -342,12 +342,12 @@ int main( int argc, char **argv )
                       dist, 1, CV_REDUCE_SUM, CV_32F, stream );
 
         // download data
-        dist.download( Desc , stream );
+        dist.download( Dist , stream );
 
         stream.waitForCompletion();
 
-        memcpy( &Descs.at<float>( k, 0 ),
-                 Desc.data, Desc.total() * Desc.elemSize() );
+        memcpy( &Dists.at<float>( k, 0 ),
+                 Dist.data, Dist.total() * Dist.elemSize() );
 
         {
           #pragma omp atomic
@@ -357,11 +357,11 @@ int main( int argc, char **argv )
       // save chunk in HDF5
       int offset[2] = {     i,                  0 };
       int counts[2] = { chunk, PRFilters.rows / 8 };
-      h5io->dswrite( Descs, "Distance",  offset, counts );
+      h5io->dswrite( Dists, "Distance",  offset, counts );
 
-      if ( !checkRange(Descs) )
+      if ( !checkRange(Dists) )
       {
-        cout << "\nDesc contains NaN\n";
+        cout << "\nDist contains NaN\n";
         exit(-1);
       }
       printf( "\rStep: %i / %i", i + chunk, TrainPairs.rows );

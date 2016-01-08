@@ -180,9 +180,8 @@ int main( int argc, char **argv )
      * Image Set
      */
 
-    Ptr<HDF5> h5im = open( ImgH5Filename );
-
     Mat TrainPairs;
+    Ptr<HDF5> h5im = open( ImgH5Filename );
     cout << "Load Indices." << endl;
     h5im->dsread( TrainPairs, "Indices" );
 
@@ -193,11 +192,11 @@ int main( int argc, char **argv )
     CV_Assert( ISize.size() == 3 );
 
     // rank3 to rank2
-    int nPatches  = ISize[0];
-    int PatchSize = ISize[1] * ISize[2];
+    int nPatches = ISize[0];
 
     // create storage
-    Mat Patches( nPatches, PatchSize, CV_8U );
+    int pdims[3] = { ISize[0], ISize[1], ISize[2] };
+    Mat Patches( 3, pdims, CV_8U );
 
     Mat Patch;
     cout << "Load Patches." << endl;
@@ -212,12 +211,11 @@ int main( int argc, char **argv )
       int icounts[3] = { count, ISize[1], ISize[2] };
       h5im->dsread( Patch, "Patches", ioffset, icounts );
 
-      memcpy( &Patches.at<uchar>( i, 0 ), Patch.data, Patch.total() );
+      memcpy( &Patches.at<uchar>( i, 0, 0 ), Patch.data, Patch.total() );
 
       nLastTick = TermProgress( (double)i / (double)nPatches, nLastTick );
     }
     nLastTick = TermProgress( 1.0f, nLastTick );
-
     // close
     h5im->close();
 
@@ -246,40 +244,87 @@ int main( int argc, char **argv )
     printf("PRFilters: %i x %i\n", sPRFilters.rows, sPRFilters.cols);
     printf("Descriptor size: %i\n", sPRFilters.rows * 8);
 
-    // create storage chunk
-    Mat Descs( sChunk, sPRFilters.rows * 8, CV_32F );
 
     Ptr<HDF5> h5id = open( OutH5Filename );
 
-    // write TrainPairs
-    h5id->dswrite( TrainPairs, "Indices" );
+    // create label space
+    Mat Label( sChunk, 1, CV_8U );
+
+    // create storage
+    int lchunks[2] = { sChunk, 1 };
+    h5id->dscreate( TrainPairs.rows, 1, CV_8U, "Label", 9, lchunks );
+
+    // iterate through image patches
+    cout << "Export Pair Labels: #" << TrainPairs.rows << endl;
+
+    // Export thruth tables
+    for ( int i = 0; i < TrainPairs.rows; i = i + sChunk )
+    {
+      int chunk = 0;
+      #pragma omp parallel for schedule(dynamic) shared(chunk)
+      for ( int k = 0; k < sChunk; k++ )
+      {
+         if ( ( i + k ) >= TrainPairs.rows )
+           continue;
+         // 3DPointID equals
+         if ( TrainPairs.at<int32_t>( i + k, 1 )
+          ==  TrainPairs.at<int32_t>( i + k, 3 ) )
+           Label.at<uchar>( k ) = 1;
+         else
+           Label.at<uchar>( k ) = 0;
+         {
+           #pragma omp atomic
+           chunk++;
+         }
+      }
+      int offset[2] = {     i, 0 };
+      int counts[2] = { chunk, 1 };
+      h5id->dswrite( Label, "Label",  offset, counts );
+
+      nLastTick = TermProgress( (double) ( i + chunk )
+                / (double) TrainPairs.rows, nLastTick );
+    }
+    nLastTick = TermProgress( 1.0f, nLastTick );
 
     // create hdf storage
     int dchunks[2] = { sChunk, 1 };
-    h5id->dscreate( Patches.rows, Descs.cols, CV_32F, "DescUnproj", 9, dchunks );
+    h5id->dscreate( TrainPairs.rows, sPRFilters.rows * 8, CV_32F, "Distance", 9, dchunks );
+
+    // create storage chunk
+    Mat Dists( sChunk, sPRFilters.rows * 8, CV_32F );
+
+    cout << "Start Compute L1 distances." << endl;
 
     int64 startTime = getTickCount();
-    for ( int i = 0; i < Patches.rows; i = i + sChunk )
+    for ( int i = 0; i < TrainPairs.rows; i = i + sChunk )
     {
       int chunk = 0;
       #pragma omp parallel for schedule(dynamic) shared(chunk)
       for ( int k = 0; k < sChunk; k++ )
       {
 
-        if ( ( i + k ) >= Patches.rows )
+        if ( ( i + k ) >= TrainPairs.rows )
           continue;
 
-        Mat Patch( 64, 64, CV_8U, Patches.ptr( i + k, 0 ) );
-        Mat PatchTrans = get_desc( Patch, nAngleBins, InitSigma, bNorm );
+        Mat Patch1( Patches.size[1], Patches.size[2],
+                    CV_8U, &Patches.at<uchar>(
+                    TrainPairs.at<int32_t>( i + k, 0 ), 0, 0) );
 
-        Mat Desc = sPRFilters * PatchTrans;
+        Mat Patch2( Patches.size[1], Patches.size[2],
+                    CV_8U, &Patches.at<uchar>(
+                    TrainPairs.at<int32_t>( i + k, 2 ), 0, 0) );
 
-        Desc = min( Desc.reshape( 0, 1 ), 1.0f );
+        // % patch descriptors (each column corresponds to a PR)
+        Mat PatchTrans1 = get_desc( Patch1, nAngleBins, InitSigma, bNorm );
+        Mat PatchTrans2 = get_desc( Patch2, nAngleBins, InitSigma, bNorm );
 
-        memcpy( &Descs.at<float>( k, 0 ),
-                 Desc.data, Desc.total() * Desc.elemSize() );
+        Mat Desc1 = sPRFilters * PatchTrans1;
+        Mat Desc2 = sPRFilters * PatchTrans2;
 
+        Mat Dist = Desc1 - Desc2;
 
+        memcpy( &Dists.at<float>( k, 0 ),
+                 Dist.data, Dist.total() * Dist.elemSize() );
         {
           #pragma omp atomic
           chunk++;
@@ -288,14 +333,14 @@ int main( int argc, char **argv )
       // save chunk in HDF5
       int offset[2] = {     i,                   0 };
       int counts[2] = { chunk, sPRFilters.rows * 8 };
-      h5id->dswrite( Descs, "DescUnproj",  offset, counts );
+      h5id->dswrite( Dists, "Distance",  offset, counts );
 
-      if ( !checkRange(Descs) )
+      if ( !checkRange(Dists) )
       {
         cout << "\nDesc contains NaN\n";
         exit(-1);
       }
-      printf( "\rStep: %i / %i", i + chunk, Patches.rows );
+      printf( "\rStep: %i / %i", i + chunk, TrainPairs.rows );
       fflush(stdout);
       chunk = 0;
     }

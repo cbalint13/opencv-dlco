@@ -34,20 +34,23 @@
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/src/trainer/include/)
 
 ADD_EXECUTABLE(conv-impatches conv-impatches.cpp misc.cpp)
-TARGET_LINK_LIBRARIES(conv-impatches ${ZLIB_LIBRARIES} ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(conv-impatches ${OpenCV_LIBS})
 
 ADD_EXECUTABLE(gen-poolregion gen-poolregion.cpp misc.cpp)
-TARGET_LINK_LIBRARIES(gen-poolregion ${ZLIB_LIBRARIES} ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(gen-poolregion ${OpenCV_LIBS})
 
 ADD_EXECUTABLE(comp-fulldists comp-fulldists.cpp misc.cpp vgg-desc.cpp)
-TARGET_LINK_LIBRARIES(comp-fulldists ${ZLIB_LIBRARIES} ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(comp-fulldists ${OpenCV_LIBS})
 
 CUDA_COMPILE(CUPRLEARN pr-learn.cu)
 ADD_EXECUTABLE(pr-learn pr-learn.cpp misc.cpp ${CUPRLEARN})
-TARGET_LINK_LIBRARIES(pr-learn ${ZLIB_LIBRARIES} ${OpenCV_LIBS} ${CUDA_CUDART_LIBRARY})
+TARGET_LINK_LIBRARIES(pr-learn ${OpenCV_LIBS} ${CUDA_CUDART_LIBRARY})
 
 ADD_EXECUTABLE(pr-stats pr-stats.cpp misc.cpp)
-TARGET_LINK_LIBRARIES(pr-stats ${ZLIB_LIBRARIES} ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(pr-stats ${OpenCV_LIBS})
 
 ADD_EXECUTABLE(comp-uprjdists comp-uprjdists.cpp misc.cpp vgg-desc.cpp)
-TARGET_LINK_LIBRARIES(comp-uprjdists ${ZLIB_LIBRARIES} ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(comp-uprjdists ${OpenCV_LIBS})
+
+ADD_EXECUTABLE(pj-learn pj-learn.cpp misc.cpp)
+TARGET_LINK_LIBRARIES(pj-learn ${OpenCV_LIBS})
