@@ -7,7 +7,7 @@ and descriptor part, reimplemented from original matlab code. Trainer part
 implemented here uses GPU as mandatory requirement. Descriptor part called
 VGG was submitted to OpenCV: https://github.com/Itseez/opencv_contrib/pull/486
 
-* The minimum hardware required for training process is to have 16Gb memory,
+* The minimum hardware requirements for training process are at least 16Gb memory
 and CUDA capable GPU card with minimum 4Gb of memory. Matrices involved during
 training reach up to 13Gb, and some validation matrices uses up to 2.5G memory
 on GPU card for optimised inplace computation. Progress bars indicates realtime
