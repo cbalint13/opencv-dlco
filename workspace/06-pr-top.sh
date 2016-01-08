@@ -41,8 +41,8 @@ do
     list="$list mean: $med $nd YO:$a1 ND:$a2 LY:$a3 $l|";
   done
 
-  echo "$list" | sed -e 's|\||\n|g' -e 's|\\\[||g'  -e 's|\\\]||g' -e "s|(||g" -e "s|)-||g" | sort -n | sed -n -e '1,5p'
-  echo "$list" | sed -e 's|\||\n|g' -e 's|\\\[||g'  -e 's|\\\]||g' -e "s|(||g" -e "s|)-||g" | sort -n | sed -n -e '1,5p' >> pr-top5.log
+  echo "$list" | sed -e 's|\||\n|g' -e 's|\\\[||g'  -e 's|\\\]||g' -e "s|(||g" -e "s|)-||g" | sort -n | sed -n -e '1,6p'
+  echo "$list" | sed -e 's|\||\n|g' -e 's|\\\[||g'  -e 's|\\\]||g' -e "s|(||g" -e "s|)-||g" | sort -n | sed -n -e '1,6p' >> pr-top5.log
 
   echo
 
