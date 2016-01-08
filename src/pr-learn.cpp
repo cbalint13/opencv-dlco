@@ -303,7 +303,6 @@ int main( int argc, char **argv )
       // % subgradient average
       dfAvg = t * dfAvg / ( t + 1 );
 
-
       if ( f.at<float>(0) > -1 )
         scaleAdd( FeatDiff, (double) 1 / ( t + 1 ), dfAvg, dfAvg );
 

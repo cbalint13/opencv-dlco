@@ -31,7 +31,7 @@
  *
  */
 
-/* compute-distances.cpp */
+/* comp-fulldists.cpp */
 /* Compute descriptor distances */
 // C++ implementation of "script_comp_desc.m"
 

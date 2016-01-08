@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* desc.cpp */
+/* vgg-desc.cpp */
 /* Implementation of "get_patch.m" */
 
 #include <opencv2/core/core.hpp>

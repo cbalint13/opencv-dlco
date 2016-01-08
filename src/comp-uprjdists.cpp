@@ -31,7 +31,7 @@
  *
  */
 
-/* compute-unprojdists.cpp */
+/* comp-uprjdists.cpp */
 /* Compute unprojected descriptors */
 // C++ implementation of "script_comp_unproj_desc.m"
 

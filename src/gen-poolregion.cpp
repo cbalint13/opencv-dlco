@@ -31,7 +31,7 @@
  *
  */
 
-/* generate-poolregions.cpp */
+/* gen-poolregion.cpp */
 /* Generates a candidate set of pooling region Gaussian filters */
 // C++ implementation of "script_gen_PR.m"
 

@@ -29,7 +29,7 @@
  */
 
 /* pr-learn.cu */
-/* PR lean cuda kernels */
+/* PR learn cuda kernels */
 
 #include "stdio.h"
 

@@ -31,7 +31,7 @@
  *
  */
 
-/* pr-select.cpp */
+/* pr-stats.cpp */
 /* Select best learned PR filter */
 // C++ implementation of "script_select_PR.m"
 

@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* convert-patches.cpp */
+/* conv-impatches.cpp */
 /* Convert patch datasets into HDF5 */
 //   "Learning Local Image Descriptors Data", Matthew Brown
 //   URL: http://www.cs.ubc.ca/~mbrown/patchdata/patchdata.html
