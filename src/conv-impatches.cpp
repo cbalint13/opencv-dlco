@@ -152,11 +152,11 @@ int main( int argc, char **argv )
         Indices.at<int>(idx,0) = IdPatch1; Indices.at<int>(idx,1) = IdPoint1;
         Indices.at<int>(idx,2) = IdPatch2; Indices.at<int>(idx,3) = IdPoint2;
 
-        // get max id (+1, 0 offset)
+        // get max id
         if ( IdPatch1 > NumPatches )
-          NumPatches = IdPatch1 + 1;
+          NumPatches = IdPatch1;
         if ( IdPatch2 > NumPatches )
-          NumPatches = IdPatch2 + 1;
+          NumPatches = IdPatch2;
       }
       nLastTick = TermProgress( (double)i / (double)NumLines, nLastTick );
 
@@ -168,6 +168,9 @@ int main( int argc, char **argv )
     nLastTick = TermProgress( 1.0f, nLastTick );
 
     Indices.release();
+
+    // +1 since 0 is the offset
+    NumPatches = NumPatches + 1;
 
     // iterate through image patches
     cout << "Export Patches: #" << NumPatches << endl;
