@@ -13,18 +13,18 @@ for ds in "yosemite" "notredame" "liberty"
     for gamma in 0.005 0.010 0.015 0.020 0.025 0.030 0.040 0.050 0.075 0.100 0.125 0.150 0.175 0.200 0.225 0.250
       do
 
-      result=$(cat pr-learn/$ds-$mu-$gamma-pr.log | grep "\: 50000000")
+      result=$(cat pr-learn/logging/$ds-$mu-$gamma-pr.log | grep "\: 50000000")
 
       if [ ${#result} -eq 0 ]
       then
         rm -f pr-learn/$ds-$mu-$gamma-pr.h5
-        rm -f pr-learn/$ds-$mu-$gamma-pr.log
+        rm -f pr-learn/logging/$ds-$mu-$gamma-pr.log
         echo "Compute dataset [$ds] mu: $mu gamma: $gamma"
         ../bin/pr-learn -iters 50000000 -mu $mu -gamma $gamma \
             filters.h5 \
             distances/$ds-dist.h5 \
             pr-learn/$ds-$mu-$gamma-pr.h5 \
-        | tee pr-learn/$ds-$mu-$gamma-pr.log
+        | tee logging/pr-learn/$ds-$mu-$gamma-pr.log
       else
         echo "Learning PR for [pr-learn/$ds-$mu-$gamma-pr.h5] already done."
       fi
