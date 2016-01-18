@@ -5,7 +5,7 @@
 ## http://www.cs.ubc.ca/~mbrown/patchdata/patchdata.html
 ##
 
-for ds in 'liberty' 'notredame' 'yosemite'
+for ds in "yosemite" "notredame" "liberty"
 do
 
   if [ ! -f dataset/$ds.h5 ]

@@ -221,14 +221,7 @@ int main( int argc, char **argv )
 
     printf( "Load Learnt Filters: [%s]#%i\n", PrjH5Filename, widx );
 
-    // % w = repmat(w', 8, 1);
-    // % w = w(:);
-    // % NZIdx = (w > 0) & any(PRFilters, 2);
-    // % w = w(NZIdx);
-    // % PRFilters = PRFilters(NZIdx, :);
-
-    Mat w, sPRFilters;
-
+    Mat w;
     Ptr<HDF5> h5io = open( PrjH5Filename );
     vector<int> dims = h5io->dsgetsize("w");
 
@@ -239,7 +232,13 @@ int main( int argc, char **argv )
 
     h5io->close();
 
-    sPRFilters = SelectPRFilters( PRFilters, w );
+    // % w = repmat(w', 8, 1);
+    // % w = w(:);
+    // % NZIdx = (w > 0) & any(PRFilters, 2);
+    // % w = w(NZIdx);
+    // % PRFilters = PRFilters(NZIdx, :);
+
+    Mat sPRFilters = SelectPRFilters( PRFilters, w );
 
     printf("PRFilters: %i x %i\n", sPRFilters.rows, sPRFilters.cols);
     printf("Descriptor size: %i\n", sPRFilters.rows * 8);
@@ -261,7 +260,7 @@ int main( int argc, char **argv )
     for ( int i = 0; i < TrainPairs.rows; i = i + sChunk )
     {
       int chunk = 0;
-      #pragma omp parallel for schedule(dynamic) shared(chunk)
+      #pragma omp parallel for schedule(dynamic,1) shared(chunk)
       for ( int k = 0; k < sChunk; k++ )
       {
          if ( ( i + k ) >= TrainPairs.rows )
@@ -299,7 +298,7 @@ int main( int argc, char **argv )
     for ( int i = 0; i < TrainPairs.rows; i = i + sChunk )
     {
       int chunk = 0;
-      #pragma omp parallel for schedule(dynamic) shared(chunk)
+      #pragma omp parallel for schedule(dynamic,1) shared(chunk)
       for ( int k = 0; k < sChunk; k++ )
       {
 
@@ -337,7 +336,7 @@ int main( int argc, char **argv )
 
       if ( !checkRange(Dists) )
       {
-        cout << "\nDesc contains NaN\n";
+        cout << "\nDist contains NaN\n";
         exit(-1);
       }
       printf( "\rStep: %i / %i", i + chunk, TrainPairs.rows );

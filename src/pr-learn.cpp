@@ -269,7 +269,7 @@ int main( int argc, char **argv )
     cout << endl;
     cout << "Found GPU: "<< info.name() << endl;
     cout << "Compute Capability: " << info.majorVersion()
-              << "." <<info.minorVersion() <<  endl;
+              << "." << info.minorVersion() <<  endl;
     cout << endl;
 
     // set active GPU
@@ -285,67 +285,77 @@ int main( int argc, char **argv )
 
     stream.waitForCompletion();
 
+    // release mem
+    PosVal.release();
+    NegVal.release();
+
     unsigned int step = 0;
-    unsigned int iPos, iNeg;
     int64 trainStartTime = getTickCount();
+    #pragma omp parallel for ordered schedule(dynamic,1) private(FeatDiff)
     for ( unsigned int t = 0; t <= nIter; t++ )
     {
-      iPos = rng.uniform( 0, nPosTrn );
-      iNeg = rng.uniform( 0, nNegTrn );
+      unsigned int iPos, iNeg;
+      #pragma omp critical
+      {
+        iPos = rng.uniform( 0, nPosTrn );
+        iNeg = rng.uniform( 0, nNegTrn );
+      }
 
       subtract( Dists.row( IdxPos[iPos] ),
                 Dists.row( IdxNeg[iNeg] ),
                 FeatDiff );
 
-      // % compute loss subgradient
-      gemm( w, FeatDiff, 1.0f, noArray(), 0.0f, f, GEMM_2_T );
-
-      // % subgradient average
-      dfAvg = t * dfAvg / ( t + 1 );
-
-      if ( f.at<float>(0) > -1 )
-        scaleAdd( FeatDiff, (double) 1 / ( t + 1 ), dfAvg, dfAvg );
-
-      // % update w
-      w = -sqrt( t + 1 ) / gamma * ( dfAvg + mu );
-      w = max( w, 0.0f );
-
-      if ( step == LogStep )
+      #pragma omp ordered
       {
-        int64 trainEndTime = getTickCount();
-        int64 validStartTime = getTickCount();
+        // % compute loss subgradient
+        gemm( w, FeatDiff, 1.0f, noArray(), 0.0f, f, GEMM_2_T );
 
-        float Regul;
-        float Loss = 0.0f;
-        float LossVal = 0.0f;
+        // % subgradient average
+        dfAvg = t * dfAvg / ( t + 1 );
 
-        W.upload( w, stream );
+        if ( f.at<float>(0) > -1 )
+          scaleAdd( FeatDiff, (double) 1 / ( t + 1 ), dfAvg, dfAvg );
 
-        // % compute the objective on the validation set subsample
-        Mat PosDist, NegDist;
+        // % update w
+        w = -sqrt( t + 1 ) / gamma * ( dfAvg + mu );
+        w = max( w, 0.0f );
 
-        cuda::gemm( POSVal, w, 1, cuda::GpuMat(), 0, POSDist, GEMM_2_T, stream );
-        cuda::gemm( NEGVal, w, 1, cuda::GpuMat(), 0, NEGDist, GEMM_2_T, stream );
-
-        cuda::GpuMat dst;
-        // % sum( max( (PosDist.at<float>(i) + 1.0f - NegDist), 0.0f ) )
-        cuda::dlco::SubtractVectorsByRows( POSDist, NEGDist, dst, stream );
-
-        // reduce final  sums
-        Loss = cuda::sum( dst )[0];
-
-        stream.waitForCompletion();
-
-        LossVal = Loss / (nPosVal * nNegVal);
-
-        // % compute the regulariser
-        Regul = mu * sum( abs( w ) )[0];
-
-        int64 validEndTime = getTickCount();
-
-        // % save w if it's the current minimiser of Obj
-        if ( ( LossVal + Regul ) < Obj_Best )
+        if ( step == LogStep )
         {
+          int64 trainEndTime = getTickCount();
+          int64 validStartTime = getTickCount();
+
+          float Regul;
+          float Loss = 0.0f;
+          float LossVal = 0.0f;
+
+          W.upload( w, stream );
+
+          // % compute the objective on the validation set subsample
+          Mat PosDist, NegDist;
+
+          cuda::gemm( POSVal, w, 1, cuda::GpuMat(), 0, POSDist, GEMM_2_T, stream );
+          cuda::gemm( NEGVal, w, 1, cuda::GpuMat(), 0, NEGDist, GEMM_2_T, stream );
+
+          cuda::GpuMat dst;
+          // % sum( max( (PosDist.at<float>(i) + 1.0f - NegDist), 0.0f ) )
+          cuda::dlco::SubtractVectorsByRows( POSDist, NEGDist, dst, stream );
+
+          // reduce final sums
+          Loss = cuda::sum( dst )[0];
+
+          stream.waitForCompletion();
+
+          LossVal = Loss / (nPosVal * nNegVal);
+
+          // % compute the regulariser
+          Regul = mu * sum( abs( w ) )[0];
+
+          int64 validEndTime = getTickCount();
+
+          // % save w if it's the current minimiser of Obj
+          if ( ( LossVal + Regul ) < Obj_Best )
+          {
             Obj_Best = LossVal + Regul;
 
             w_Best = w.clone();
@@ -402,26 +412,25 @@ int main( int argc, char **argv )
               printf( "Stat: nPR #%i (#%i) Dim/MaxDim [%i/%i] AUC: %f FPR95: %.2f\n",
                       nPR, nzDim, Dim, MaxDim, AUC, FPR95*100 );
             }
-        } else {
-            printf("Step: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f)  NNZ: %i (%i)  Ttime: %.4f Vtime: %.4f\n",
-                   t, LossVal, Regul, (LossVal + Regul), Obj_Best, countNonZero(w), countNonZero(w_Best),
-                   ( trainEndTime - trainStartTime ) / frequency,
-                   ( validEndTime - validStartTime ) / frequency );
-        }
-        // flush i/o
-        cout << flush;
+          } else {
+              printf("Step: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f)  NNZ: %i (%i)  Ttime: %.4f Vtime: %.4f\n",
+                     t, LossVal, Regul, (LossVal + Regul), Obj_Best, countNonZero(w), countNonZero(w_Best),
+                     ( trainEndTime - trainStartTime ) / frequency,
+                     ( validEndTime - validStartTime ) / frequency );
+          }
+          // flush i/o
+          cout << flush;
 
-        step = 0;
-        trainStartTime = getTickCount();
-      }
-      step++;
-    }
+          step = 0;
+          trainStartTime = getTickCount();
+        } // end if
+        step++;
+      } // end pragma omp ordered
+    } // end for cycle
 
     IdxPos.clear();
     IdxNeg.clear();
     Dists.release();
-    PosVal.release();
-    NegVal.release();
 
     return 0;
 }

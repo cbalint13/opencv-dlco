@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ##
-## This script will compute L2 patch-pairs distance
+## This script will compute patch-pairs distance
 ##
 
-for ds in 'liberty' 'notredame' 'yosemite'
+for ds in "yosemite" "notredame" "liberty"
 do
 
   if [ ! -f distances/$ds-dist.h5 ]

@@ -238,7 +238,7 @@ int main( int argc, char **argv )
     for ( int i = 0; i < TrainPairs.rows; i = i + sChunk )
     {
       int chunk = 0;
-      #pragma omp parallel for schedule(dynamic) shared(chunk)
+      #pragma omp parallel for schedule(dynamic,1) shared(chunk)
       for ( int k = 0; k < sChunk; k++ )
       {
          if ( ( i + k ) >= TrainPairs.rows )
@@ -294,7 +294,7 @@ int main( int argc, char **argv )
     for ( int i = 0; i < TrainPairs.rows; i = i + sChunk )
     {
       int chunk = 0;
-      #pragma omp parallel for schedule(dynamic) shared(chunk)
+      #pragma omp parallel for schedule(dynamic,1) shared(chunk)
       for ( int k = 0; k < sChunk; k++ )
       {
 

@@ -17,7 +17,8 @@ thus these numerical results can be consulted outside the DLCO framework.
 
 * Math part in many places reorders computation from original formulas for being
 numericaly stable due to large floating point computations & error accumulations.
-Very special attention was given for these aspects during coding DLCO.
+Very special attention was given for these aspects during coding DLCO. Results
+may differ accross machines nd compiler flags.
 
 * Follow scripts and documentation from the `workspace` folder for getting
 through whole training procedure.
@@ -44,10 +45,17 @@ IEEE Transactions on Pattern Analysis and Machine Intelligence, 2011
 
 ---------------------------------------------------------------------------------------
 
+18-Jan-2016
+
+ - Fixed conv-imgpatches.cpp, very last ending image patch was missing.
+ - Pool-Region filters re-learnt over 3x256 combinations of mu & gamma regularizers.
+ - Some older filters are reused from 07-Jan-2016 batch, that process differ by numeric.
+ - Best selected filters average at 10.66% FPR95 value, lower than authors exposed.
+
 07-Jan-2016
 
- - Pool-Region filters are learnt over 300 combinations of mu & gamma regularizers.
- - Best selected filters average at 10.64% FPR95 value, lower than authors exposed.
+ - Pool-Region filters are learnt over 3x100 combinations of mu & gamma regularizers.
+ - Best selected filters average at 10.66% FPR95 value, lower than authors exposed.
 
 TODO:
 

@@ -1,27 +1,35 @@
 #!/bin/bash
 
 ##
-## This script will select best pr filters
+## This script will compute statistics with output sorted by AUC
 ##
 
-for ds in 'liberty' 'notredame' 'yosemite'
+for ds in "yosemite" "notredame" "liberty"
 do
 
   list=''
-  for p in `ls pr-learn/$ds-*.h5`;
+  for p in `find . -name $ds-*-pr.h5 | sed -e 's|\.\/||g'`;
    do
    list="$list -prj $p"
   done
 
-  echo "$list"
+  result=$(cat pr-select-$ds.log | grep Best | wc -l)
 
-  rm -f pr-select-$ds.log
+  if [ $result -ne 3 ]
+  then
 
-  ulimit -S -c 0
-  ../bin/pr-stats filters.h5 \
-         -dst distances/yosemite-dist.h5 \
-         -dst distances/liberty-dist.h5 \
-         -dst distances/notredame-dist.h5 \
-         $list | tee pr-select-$ds.log
+    echo "$list"
+
+    rm -f pr-select-$ds.log
+
+    ulimit -S -c 0
+    ../bin/pr-stats filters.h5 \
+           -dst distances/yosemite-dist.h5 \
+           -dst distances/liberty-dist.h5 \
+           -dst distances/notredame-dist.h5 \
+           $list | tee pr-select-$ds.log
+  else
+  echo "$ds already done."
+  fi
 
 done

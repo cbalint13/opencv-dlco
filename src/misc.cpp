@@ -251,9 +251,10 @@ void ComputeStats( const int nChannels, const Mat& PRParams,
            ( TPR.at<float>(0, i) >= 0.95f ) )
          FPR95 = FPR.at<float>(0, i);
     }
+
+    // % area under ROC curve
     TFPR.at<float>(PatchRank.cols, 0) = 1.0f;
     TFPR.at<float>(PatchRank.cols, 1) = 0.0f;
 
-    // % area under ROC curve
     AUC = contourArea( TFPR );
 }

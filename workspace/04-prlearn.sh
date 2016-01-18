@@ -1,19 +1,19 @@
 #!/bin/bash
 
 ##
-## This script will choose best pooling regions
+## This script will learn pooling regions
 ##
 
-for ds in 'liberty' 'notredame' 'yosemite'
+for ds in "yosemite" "notredame" "liberty"
   do
 
-  for mu in 0.0025 0.005 0.010 0.015 0.020 0.025 0.030 0.035 0.040 0.045
+  for mu in 0.001 0.002 0.003 0.004 0.005 0.010 0.015 0.020 0.025 0.030 0.035 0.040 0.045 0.050 0.055 0.060
     do
 
-    for gamma in 0.010 0.015 0.020 0.025 0.050 0.075 0.100 0.125 0.150 0.175
+    for gamma in 0.005 0.010 0.015 0.020 0.025 0.030 0.040 0.050 0.075 0.100 0.125 0.150 0.175 0.200 0.225 0.250
       do
 
-      result=$(cat pr-learn/$ds-$mu-$gamma-pr.log | grep "Step\: 50000000")
+      result=$(cat pr-learn/$ds-$mu-$gamma-pr.log | grep "\: 50000000")
 
       if [ ${#result} -eq 0 ]
       then

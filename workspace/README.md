@@ -21,9 +21,9 @@ regularization parameters over the three datasets.
 learnt pool-region filters like: false positive rate, area under curve and
 dimensionality.
 
-(06) *06-pr-top.sh* will display top 5 performing learnt pooling-region given
-false positive rate and dimensionality criteria. Final selection is done by
-hand.
+(06) *06-pr-top.sh* will display top 10 performing learnt pooling-region
+given false positive rate and dimensionality criteria. Final selection is
+done by hand.
 
 (07) *07-compunproj.sh* will precompute lower dimensional distances given
 descriptors of patch-pairs constructed by `filter.h5` layout and stripped
