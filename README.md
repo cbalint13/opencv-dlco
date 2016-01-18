@@ -50,12 +50,12 @@ IEEE Transactions on Pattern Analysis and Machine Intelligence, 2011
  - Fixed conv-imgpatches.cpp, very last ending image patch was missing.
  - Pool-Region filters re-learnt over 3x256 combinations of mu & gamma regularizers.
  - Some older filters are reused from 07-Jan-2016 batch, that process differ by numeric.
- - Best selected filters average at 10.66% FPR95 value, lower than authors exposed.
+ - Best selected filters average at 10.682% FPR95 value, but much lower dimensionality.
 
 07-Jan-2016
 
  - Pool-Region filters are learnt over 3x100 combinations of mu & gamma regularizers.
- - Best selected filters average at 10.66% FPR95 value, lower than authors exposed.
+ - Best selected filters average at 10.664% FPR95 value, lower than authors exposed.
 
 TODO:
 
