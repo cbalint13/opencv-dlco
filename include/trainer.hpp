@@ -40,6 +40,7 @@ using namespace cv;
  * Common routines
  */
 
+void eigen_cpu( Mat& A, Mat& Eval, Mat& Evec );
 Mat SelectPRFilters( const Mat PRFilters, const Mat w );
 Mat get_desc( Mat Patch, int nAngleBins, float InitSigma, bool bNorm );
 void ComputeStats( const int nChannels, const Mat& PRParams,
@@ -54,7 +55,10 @@ int TermProgress( double dfComplete , int nLastTick = -1 );
 namespace cv { namespace cuda {
 namespace dlco {
 
-void SubtractVectorsByRows( const cuda::GpuMat& src1, const cuda::GpuMat& src2, 
+void SubtractVectorsByRows( const cuda::GpuMat& src1, const cuda::GpuMat& src2,
+                            cuda::GpuMat& dst, cuda::Stream& _stream );
+
+void SubtractVectorsByRowsT( const cuda::GpuMat& src1, const cuda::GpuMat& src2,
                             cuda::GpuMat& dst, cuda::Stream& _stream );
 
 } // end namespace dlco

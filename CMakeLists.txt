@@ -48,7 +48,6 @@ SET(CMAKE_MODULE_PATH "cmake/;${CMAKE_MODULE_PATH}")
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
-
 # set a default build type if none was specified
 IF(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   MESSAGE(STATUS "Setting build type to 'Release' as none was specified.")
@@ -70,6 +69,8 @@ IF (NOT WIN32)
  SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -Wall -Werror --std c++11 -g -O0")
 ENDIF()
 
+SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
 #####
 # find OpenMP library
 FIND_PACKAGE(OpenMP REQUIRED)
@@ -90,6 +91,15 @@ IF(OpenCV_FOUND)
     MESSAGE(FATAL_ERROR "OpenCV minimum 3.1.0 required.")
   ENDIF()
 ENDIF()
+
+#####
+# find OpenBLAS
+FIND_PACKAGE(OpenBLAS REQUIRED)
+IF(OpenBLAS_FOUND)
+  INCLUDE_DIRECTORIES(${OpenBLAS_INCLUDE_DIRS})
+  MESSAGE(STATUS "OpenBLAS found.")
+ENDIF()
+
 
 SET(CUDA_PROPAGATE_HOST_FLAGS OFF)
 SET(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS};-gencode arch=compute_52,code=sm_52")

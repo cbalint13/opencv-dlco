@@ -332,10 +332,8 @@ int main( int argc, char **argv )
           W.upload( w, stream );
 
           // % compute the objective on the validation set subsample
-          Mat PosDist, NegDist;
-
-          cuda::gemm( POSVal, w, 1, cuda::GpuMat(), 0, POSDist, GEMM_2_T, stream );
-          cuda::gemm( NEGVal, w, 1, cuda::GpuMat(), 0, NEGDist, GEMM_2_T, stream );
+          cuda::gemm( POSVal, W, 1, cuda::GpuMat(), 0, POSDist, GEMM_2_T, stream );
+          cuda::gemm( NEGVal, W, 1, cuda::GpuMat(), 0, NEGDist, GEMM_2_T, stream );
 
           cuda::GpuMat dst;
           // % sum( max( (PosDist.at<float>(i) + 1.0f - NegDist), 0.0f ) )

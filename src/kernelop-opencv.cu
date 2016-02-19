@@ -64,6 +64,25 @@ __global__ static void kSubtractVectorsByRows( const GlobPtrSz<float> src1,
     }
 }
 
+__global__ static void kSubtractVectorsByRowsT( const GlobPtrSz<float> src1,
+                                                const GlobPtrSz<float> src2,
+                                                GlobPtr<float> dst )
+{
+    unsigned int idx = blockIdx.x * blockDim.x + threadIdx.x;
+
+    while ( idx < src1.rows )
+    {
+      register float tsum = 0;
+      for ( int i = 0; i < src2.cols; i++ )
+      {
+        register float rsum = src1.data[ idx ] + 1 - src2.data[ i ];
+        tsum += (rsum > 0) ? rsum : 0;
+      }
+      dst.data[idx] = tsum;
+      idx += gridDim.x * blockDim.x;
+    }
+}
+
 void SubtractVectorsByRows( const cuda::GpuMat& src1, const cuda::GpuMat& src2, cuda::GpuMat& dst, Stream& _stream )
 {
     const dim3 grid ( 4096, 1, 1 );
@@ -77,6 +96,21 @@ void SubtractVectorsByRows( const cuda::GpuMat& src1, const cuda::GpuMat& src2, 
     CV_CUDEV_SAFE_CALL( cudaGetLastError() );
     CV_CUDEV_SAFE_CALL( cudaDeviceSynchronize() );
 }
+
+void SubtractVectorsByRowsT( const cuda::GpuMat& src1, const cuda::GpuMat& src2, cuda::GpuMat& dst, Stream& _stream )
+{
+    const dim3 grid ( 4096, 1, 1 );
+    const dim3 block(  512, 1, 1 );
+
+    cudaStream_t stream = StreamAccessor::getStream(_stream);
+
+    dst = cuda::GpuMat( src1.cols, 1, CV_32F, Scalar::all(0) );
+    kSubtractVectorsByRowsT<<< grid, block, 0, stream >>>( globPtr<float>(src1), globPtr<float>(src2), globPtr<float>(dst) );
+
+    CV_CUDEV_SAFE_CALL( cudaGetLastError() );
+    CV_CUDEV_SAFE_CALL( cudaDeviceSynchronize() );
+}
+
 
 } // end namespace dlco
 }} // end namespaces

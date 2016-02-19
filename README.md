@@ -18,7 +18,13 @@ thus these numerical results can be consulted outside the DLCO framework.
 * Math part in many places reorders computation from original formulas for being
 numericaly stable due to large floating point computations & error accumulations.
 Very special attention was given for these aspects during coding DLCO. Results
-may differ accross machines nd compiler flags.
+may differ accross machines nd compiler flags. Floating Point HW excepetions are
+activated to track down potential issues.
+
+* Computations that cannot fit within GPU memory are computed on local CPU using
+OpenBLAS and OpenMP parallelism. OpenBLAS is also used for its very fast eigen
+decompositions (SSYREVR) and matrix multiplications (SGEMM). It is recommanded
+to have OpenMP compiled variant of OpenBLAS for highest possible performance.
 
 * Follow scripts and documentation from the `workspace` folder for getting
 through whole training procedure.
