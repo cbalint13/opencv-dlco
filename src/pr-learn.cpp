@@ -162,7 +162,6 @@ int main( int argc, char **argv )
               << " nIters: " << nIter
     << endl;
 
-
     Mat PRParams, RingParams;
     Ptr<HDF5> h5fl = open( FltH5Filename );
 
@@ -234,7 +233,7 @@ int main( int argc, char **argv )
     randShuffle( IdxPos );
     randShuffle( IdxNeg );
 
-    Mat f, df;
+    Mat f( 1, 1, CV_32F ), df;
     Mat FeatDiff( 1, FeatDim, CV_32F );
 
     float Obj_Best = FLT_MAX;

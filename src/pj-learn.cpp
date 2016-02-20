@@ -61,17 +61,29 @@ int main( int argc, char **argv )
     int sChunk = 128;
     int nLastTick = -1;
 
-    // % TrainSetName = 'yosemite';
-    // % mu = 0.25;
-    // % gamma = 4;
-
-    // TrainSetName = 'notredame';
-    // % mu = 0.15;
+    // %% yosemite
+    // % <=80-D
+    // %mu = 0.001;
+    // %gamma = 0.5;
+    // % <=64-D
+    // % mu = 0.002;
     // % gamma = 0.5;
 
-    //  TrainSetName = 'liberty';
-    // % mu = 0.5;
-    // % gamma = 8;
+    // %% notredame
+    // % <=80-D
+    // % mu = 0.001;
+    // % gamma = 1;
+    // % <=64-D
+    // % mu = 0.001;
+    // % gamma = 0.25;
+
+    // %% liberty
+    // % <=80-D
+    // % mu = 0.001;
+    // % gamma = 1;
+    // % <=64-D
+    // % mu = 0.002;
+    // % gamma = 1;
 
     // hyperparams
     float mu = 0.001f;
