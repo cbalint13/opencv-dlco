@@ -44,10 +44,10 @@
 #include <opencv2/cudafilters.hpp>
 #include <opencv2/hdf/hdf5.hpp>
 
-#include "trainer.hpp"
-
 #include "openblas/cblas.h"
 #include "openblas/lapacke.h"
+
+#include "trainer.hpp"
 
 
 using namespace std;
@@ -86,6 +86,7 @@ int main( int argc, char **argv )
     // % gamma = 1;
 
     // hyperparams
+    int MaxDim = 80;
     float mu = 0.001f;
     float gamma = 0.500;
     unsigned int nIter = 10000;
@@ -126,6 +127,12 @@ int main( int argc, char **argv )
             i++;
             continue;
         }
+        if ( strcmp(argv[i], "-maxdim") == 0 )
+        {
+            MaxDim = atoi(argv[i+1]);
+            i++;
+            continue;
+        }
         if ( strcmp(argv[i], "-iters") == 0 )
         {
             nIter = atoi(argv[i+1]);
@@ -159,13 +166,15 @@ int main( int argc, char **argv )
         cout << "Usage: pr-learn  src_h5_dist_file dst_h5_output_file" << endl;
         cout << "       -mu <0.0-1.0, 0.025=default> " << endl;
         cout << "       -gamma <0.0-10.0, 0.10=default> " << endl;
+        cout << "       -maxdim <10-256, 80=default> " << endl;
         cout << "       -iters <0-N, 5000000=default> " << endl;
         cout << endl;
         exit( 1 );
     }
     cout << "mu: " << mu
-              << " gamma: " << gamma
-              << " nIters: " << nIter
+         << " gamma: " << gamma
+         << " maxdim: " << MaxDim
+         << " nIters: " << nIter
     << endl;
 
 
@@ -543,17 +552,71 @@ int main( int argc, char **argv )
 
           W_Best = W.clone();
 
-          printf("Best: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f) Rank: %i (%i) Ttime: %.4f Vtime: %.4f\n",
-                     t, LossVal, Regul, (LossVal + Regul), Obj_Best, W.rows, W_Best.rows,
-                     ( trainEndTime - trainStartTime ) / frequency,
-                     ( validEndTime - validStartTime ) / frequency );
+          printf( "Best: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f) Rank: %i (%i) Ttime: %.4f Vtime: %.4f\n",
+                  t, LossVal, Regul, (LossVal + Regul), Obj_Best, W.rows, W_Best.rows,
+                  ( trainEndTime - trainStartTime ) / frequency,
+                  ( validEndTime - validStartTime ) / frequency );
 
+          if ( t >= 1 )
+          {
+            /*
+             *  best model full statistics
+             */
+
+            int Dim;
+            double AUC;
+            float FPR95;
+
+            // open hdf5 files
+            Mat X;
+            Ptr<HDF5> h5ix = open( "/home/cbalint/work/GITHUB/opencv-dlco/workspace/pj-learn/originals/yosemite-rank_m0.001_g0.5.h5" );
+            h5ix->dsread( X, "W" );
+            h5ix->close();
+
+            ComputePJStats( Dists, Labels, X, Dim, FPR95, AUC );
+
+            /*
+             * save best results
+             * if fit max dim
+             */
+
+            if ( Dim <= MaxDim )
+            {
+/*
+              // open hdf5 files
+              Ptr<HDF5> h5iw = open( OutputH5Filename );
+
+              // create set with unlimited rows
+              if ( ! h5iw->hlexists( "w" ) )
+              {
+                int chunks[2] = { 1, W.cols };
+                h5iw->dscreate( HDF5::H5_UNLIMITED, W.cols, CV_32F, "w", 9, chunks );
+              }
+
+              // get actual size
+              vector<int> wsize = h5iw->dsgetsize( "W" );
+              // append to last row
+              int offset[2] = { wsize[0], 0 };
+              h5iw->dsinsert( w_Best, "w", offset );
+
+              // close
+              h5iw->close();
+*/
+
+              // log as saved
+              printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f FPR95: %.2f [saved]\n",
+                      Dim, MaxDim, AUC, FPR95*100 );
+
+            } else {
+              printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f FPR95: %.2f\n",
+                      Dim, MaxDim, AUC, FPR95*100 );
+            }
+          }
         } else {
-
-          printf("Step: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f) Rank: %i (%i) Ttime: %.4f Vtime: %.4f\n",
-                     t, LossVal, Regul, (LossVal + Regul), Obj_Best, W.rows, W_Best.rows,
-                     ( trainEndTime - trainStartTime ) / frequency,
-                     ( validEndTime - validStartTime ) / frequency );
+            printf( "Step: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f) Rank: %i (%i) Ttime: %.4f Vtime: %.4f\n",
+                    t, LossVal, Regul, (LossVal + Regul), Obj_Best, W.rows, W_Best.rows,
+                    ( trainEndTime - trainStartTime ) / frequency,
+                    ( validEndTime - validStartTime ) / frequency );
 
         }
         // flush i/o
@@ -564,6 +627,14 @@ int main( int argc, char **argv )
       } // end if
       step++;
     } // end for cycle
+
+              // open hdf5 files
+              Ptr<HDF5> h5iw = open( OutputH5Filename );
+              h5iw->dswrite( W_Best, "W" );
+              // close
+              h5iw->close();
+              h5iw.release();
+
 
     return 0;
 }

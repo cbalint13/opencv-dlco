@@ -249,7 +249,7 @@ int main( int argc, char **argv )
           // full statistics
           if ( ! bModelSelect ) MaxDim = -1;
 
-          ComputeStats( nChannels, PRParams, Dists, Labels, w, nPR, Dim, nzDim, FPR95, AUC, MaxDim );
+          ComputePRStats( nChannels, PRParams, Dists, Labels, w, nPR, Dim, nzDim, FPR95, AUC, MaxDim );
 
           nLastTick = TermProgress( (double)prj_idx / (double)prj_files.size(), nLastTick );
 

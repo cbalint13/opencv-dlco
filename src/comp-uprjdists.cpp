@@ -320,6 +320,10 @@ int main( int argc, char **argv )
         Mat Desc1 = sPRFilters * PatchTrans1;
         Mat Desc2 = sPRFilters * PatchTrans2;
 
+        // % crop
+        min( Desc1, 1.0f, Desc1 );
+        min( Desc2, 1.0f, Desc2 );
+
         Mat Dist = Desc1 - Desc2;
 
         memcpy( &Dists.at<float>( k, 0 ),

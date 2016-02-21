@@ -78,6 +78,7 @@ int main( int argc, char **argv )
     // hyperparams
     float mu = 0.025f;
     float gamma = 0.10f;
+    int MaxDim = 640;
     unsigned int nIter = 5000000;
     unsigned int LogStep = 100000;
 
@@ -110,6 +111,12 @@ int main( int argc, char **argv )
         if ( strcmp(argv[i], "-gamma") == 0 )
         {
             gamma = atof(argv[i+1]);
+            i++;
+            continue;
+        }
+        if ( strcmp(argv[i], "-maxdim") == 0 )
+        {
+            MaxDim = atoi(argv[i+1]);
             i++;
             continue;
         }
@@ -153,13 +160,15 @@ int main( int argc, char **argv )
         cout << "       src_h5_dist_file dst_h5_output_file" << endl;
         cout << "       -mu <0.0-1.0, 0.025=default> " << endl;
         cout << "       -gamma <0.0-10.0, 0.10=default> " << endl;
+        cout << "       -maxdim <64-768, 640=default> " << endl;
         cout << "       -iters <0-N, 5000000=default> " << endl;
         cout << endl;
         exit( 1 );
     }
     cout << "mu: " << mu
-              << " gamma: " << gamma
-              << " nIters: " << nIter
+         << " gamma: " << gamma
+         << " maxdim: " << MaxDim
+         << " nIters: " << nIter
     << endl;
 
     Mat PRParams, RingParams;
@@ -366,14 +375,13 @@ int main( int argc, char **argv )
              *  best model full statistics
              */
 
-            const int MaxDim = 640;
             const int nChannels = 8;
 
             double AUC;
             float FPR95;
             int nPR, Dim, nzDim;
 
-            ComputeStats( nChannels, PRParams, Dists, Labels, w, nPR, Dim, nzDim, FPR95, AUC );
+            ComputePRStats( nChannels, PRParams, Dists, Labels, w, nPR, Dim, nzDim, FPR95, AUC );
 
             /*
              * save best results
@@ -410,10 +418,10 @@ int main( int argc, char **argv )
                       nPR, nzDim, Dim, MaxDim, AUC, FPR95*100 );
             }
           } else {
-              printf("Step: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f)  NNZ: %i (%i)  Ttime: %.4f Vtime: %.4f\n",
-                     t, LossVal, Regul, (LossVal + Regul), Obj_Best, countNonZero(w), countNonZero(w_Best),
-                     ( trainEndTime - trainStartTime ) / frequency,
-                     ( validEndTime - validStartTime ) / frequency );
+              printf( "Step: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f)  NNZ: %i (%i)  Ttime: %.4f Vtime: %.4f\n",
+                      t, LossVal, Regul, (LossVal + Regul), Obj_Best, countNonZero(w), countNonZero(w_Best),
+                      ( trainEndTime - trainStartTime ) / frequency,
+                      ( validEndTime - validStartTime ) / frequency );
           }
           // flush i/o
           cout << flush;

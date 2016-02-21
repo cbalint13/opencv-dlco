@@ -165,9 +165,10 @@ Mat SelectPRFilters( const Mat PRFilters, const Mat w )
     return sPRFilters;
 }
 
-void ComputeStats( const int nChannels, const Mat& PRParams,
-                   const Mat& Dists, const Mat& Labels, const Mat& w,
-                   int& nPR, int &Dim, int& nzDim, float& FPR95, double& AUC, int MaxDim = -1 )
+void ComputePRStats( const int nChannels, const Mat& PRParams,
+                     const Mat& Dists, const Mat& Labels, const Mat& w,
+                     int& nPR, int &Dim, int& nzDim, float& FPR95, double& AUC,
+                     const int MaxDim = -1 )
 {
 
     // % w2 = repmat(reshape(w, 1, []), 8, 1);
@@ -258,3 +259,63 @@ void ComputeStats( const int nChannels, const Mat& PRParams,
 
     AUC = contourArea( TFPR );
 }
+
+void ComputePJStats( const Mat& Dists, const Mat& Labels, const Mat& W,
+                     int& Dim, float& FPR95, double& AUC )
+{
+    Mat nzW;
+    // % W = W(any(W, 2), :);
+    for ( int i = 0; i < W.rows; i++ )
+    {
+      if ( countNonZero( W.row( i ) ) != 0 )
+        nzW.push_back( W.row( i ) );
+    }
+
+    Dim = nzW.rows;
+
+    // % DescDiffProj = W * SelectData.DescDiff;
+    Mat DescDiffProj =  nzW * Dists.t();
+
+    Mat PatchDist;
+    // % PatchDist = sum(DescDiffProj .^ 2, 1);
+    pow( DescDiffProj, 2, DescDiffProj );
+    reduce( DescDiffProj, PatchDist, 0, CV_REDUCE_SUM );
+
+    Mat PatchRank;
+    sortIdx( PatchDist, PatchRank, CV_SORT_EVERY_ROW + CV_SORT_ASCENDING );
+    PatchDist.release();
+
+    // % compute ROC curve
+    float tplast = 0.0f, fplast = 0.0f;
+    Mat TPR(1, PatchRank.cols, CV_32F);
+    Mat FPR(1, PatchRank.cols, CV_32F);
+    for (int i = 0; i < PatchRank.cols; i++)
+    {
+      int idx = PatchRank.at<int32_t>(0, i);
+      if ( Labels.at<uchar>(idx, 0) == 1 ) tplast++;
+      if ( Labels.at<uchar>(idx, 0) == 0 ) fplast++;
+      TPR.at<float>(0, i) = tplast; FPR.at<float>(0, i) = fplast;
+    }
+
+    TPR /= tplast;
+    FPR /= fplast;
+
+    // % FPR @ 95% Recall
+    FPR95 = -1.0f;
+    Mat TFPR(PatchRank.cols+1, 2, CV_32F);
+    for (int i = 0; i < PatchRank.cols; i++)
+    {
+      TFPR.at<float>(i, 0) = FPR.at<float>(0, i);
+      TFPR.at<float>(i, 1) = TPR.at<float>(0, i);
+      if ( ( FPR95 == -1.0f ) &&
+           ( TPR.at<float>(0, i) >= 0.95f ) )
+         FPR95 = FPR.at<float>(0, i);
+    }
+
+    // % area under ROC curve
+    TFPR.at<float>(PatchRank.cols, 0) = 1.0f;
+    TFPR.at<float>(PatchRank.cols, 1) = 0.0f;
+
+    AUC = contourArea( TFPR );
+}
+

@@ -40,12 +40,14 @@ using namespace cv;
  * Common routines
  */
 
-void eigen_cpu( Mat& A, Mat& Eval, Mat& Evec );
 Mat SelectPRFilters( const Mat PRFilters, const Mat w );
 Mat get_desc( Mat Patch, int nAngleBins, float InitSigma, bool bNorm );
-void ComputeStats( const int nChannels, const Mat& PRParams,
-                   const Mat& Dists, const Mat& Labels, const Mat& w,
-                   int& nPR, int &Dim, int& nzDim, float& FPR95, double& AUC, int MaxDim = -1 );
+void ComputePRStats( const int nChannels, const Mat& PRParams,
+                     const Mat& Dists, const Mat& Labels, const Mat& w,
+                     int& nPR, int &Dim, int& nzDim, float& FPR95, double& AUC,
+                     const int MaxDim = -1 );
+void ComputePJStats( const Mat& Dists, const Mat& Labels, const Mat& W,
+                     int& Dim, float& FPR95, double& AUC );
 int TermProgress( double dfComplete , int nLastTick = -1 );
 
 /*
