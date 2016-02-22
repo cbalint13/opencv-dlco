@@ -136,7 +136,7 @@ Mat get_desc( Mat Patch, int nAngleBins, float InitSigma, bool bNorm )
 
     // % feature channels
     Mat PatchTrans = Mat::zeros( Patch.total(), nAngleBins, CV_32F );
-    for (int i = 0; i < nAngleBins; i++)
+    for ( int i = 0; i < nAngleBins; i++ )
     {
       for ( int p = 0; p < (int)Patch.total(); p++ )
       {
