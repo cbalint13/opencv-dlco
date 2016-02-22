@@ -241,8 +241,9 @@ int main( int argc, char **argv )
     double AUC_Best = 0;
     float Obj_Best = FLT_MAX;
     float FPR95_Best = FLT_MAX;
-    Mat W_Best =  Mat::zeros( 1, FeatDim, CV_32F );
-    Mat W_Save =  Mat::zeros( 1, FeatDim, CV_32F );
+    Mat W_Best =  Mat::zeros( Dists.cols, Dists.cols, CV_32F );
+    Mat W_Save =  Mat::zeros( Dists.cols, Dists.cols, CV_32F );
+    Mat A_Save =  Mat::zeros( Dists.cols, Dists.cols, CV_32F );
 
     size_t nPosTrn = IdxPos.size() * nDiv;
     size_t nNegTrn = IdxNeg.size() * nDiv;
@@ -578,6 +579,7 @@ int main( int argc, char **argv )
             FPR95_Best = FPR95;
 
             W_Save = W.clone();
+            A_Save = A.clone();
 
             // log as saved
             printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f (%f) FPR95: %.2f (%.2f) [saved]\n",
@@ -605,6 +607,7 @@ int main( int argc, char **argv )
     // open hdf5 files
     Ptr<HDF5> h5iw = open( OutputH5Filename );
     h5iw->dswrite( W_Save, "W" );
+    h5iw->dswrite( A_Save, "A" );
     // close
     h5iw->close();
 
