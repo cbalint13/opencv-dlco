@@ -34,6 +34,8 @@
 #include <stdio.h>
 
 #include <opencv2/core/core.hpp>
+#include <opencv2/cudaarithm.hpp>
+#include <opencv2/cudafilters.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
 
@@ -260,7 +262,7 @@ void ComputePRStats( const int nChannels, const Mat& PRParams,
     AUC = contourArea( TFPR );
 }
 
-void ComputePJStats( const Mat& Dists, const Mat& Labels, const Mat& W,
+void ComputePJStats( const cuda::GpuMat& DISTs, const Mat& Labels, const Mat& W,
                      int& Dim, float& FPR95, double& AUC )
 {
     Mat nzW;
@@ -273,13 +275,23 @@ void ComputePJStats( const Mat& Dists, const Mat& Labels, const Mat& W,
 
     Dim = nzW.rows;
 
+    cuda::GpuMat cnzW;
+    cuda::Stream stream;
+    cuda::GpuMat DESCDiffProj, PATCHDist;;
+
+    cnzW.upload( nzW, stream );
+
     // % DescDiffProj = W * SelectData.DescDiff;
-    Mat DescDiffProj =  nzW * Dists.t();
+    cuda::gemm( cnzW, DISTs, 1, cuda::GpuMat(), 0, DESCDiffProj, GEMM_2_T, stream );
+
+    // % PatchDist = sum(DescDiffProj .^ 2, 1);
+    cuda::pow( DESCDiffProj, 2, DESCDiffProj );
+    cuda::reduce( DESCDiffProj, PATCHDist, 0, CV_REDUCE_SUM );
 
     Mat PatchDist;
-    // % PatchDist = sum(DescDiffProj .^ 2, 1);
-    pow( DescDiffProj, 2, DescDiffProj );
-    reduce( DescDiffProj, PatchDist, 0, CV_REDUCE_SUM );
+    PATCHDist.download( PatchDist, stream );
+
+    stream.waitForCompletion();
 
     Mat PatchRank;
     sortIdx( PatchDist, PatchRank, CV_SORT_EVERY_ROW + CV_SORT_ASCENDING );
@@ -318,4 +330,3 @@ void ComputePJStats( const Mat& Dists, const Mat& Labels, const Mat& W,
 
     AUC = contourArea( TFPR );
 }
-

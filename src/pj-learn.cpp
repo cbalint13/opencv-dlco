@@ -89,7 +89,7 @@ int main( int argc, char **argv )
     int MaxDim = 80;
     float mu = 0.001f;
     float gamma = 0.500;
-    unsigned int nIter = 10000;
+    unsigned int nIter = 50000;
     unsigned int LogStep = 100;
     unsigned int szBatch = 200;
 
@@ -238,8 +238,11 @@ int main( int argc, char **argv )
     Mat f, df;
     Mat FeatDiff( 1, FeatDim, CV_32F );
 
+    double AUC_Best = 0;
     float Obj_Best = FLT_MAX;
+    float FPR95_Best = FLT_MAX;
     Mat W_Best =  Mat::zeros( 1, FeatDim, CV_32F );
+    Mat W_Save =  Mat::zeros( 1, FeatDim, CV_32F );
 
     size_t nPosTrn = IdxPos.size() * nDiv;
     size_t nNegTrn = IdxNeg.size() * nDiv;
@@ -278,11 +281,13 @@ int main( int argc, char **argv )
 
     cuda::GpuMat cW;
     cuda::Stream stream;
-    cuda::GpuMat POSVal, NEGVal;
+    cuda::GpuMat DISTs;
+    cuda::GpuMat POSVal,  NEGVal;
     cuda::GpuMat POSDist, NEGDist;
     cuda::GpuMat POSFeatDiffProj;
     cuda::GpuMat NEGFeatDiffProj;
 
+    DISTs.upload( Dists, stream );
     POSVal.upload( PosVal, stream );
     NEGVal.upload( NegVal, stream );
 
@@ -313,7 +318,6 @@ int main( int argc, char **argv )
     for ( unsigned int t = 0; t <= nIter; t++ )
     {
       // %% gradient computation
-      int64 batchStartTime = getTickCount();
 
       // % sample a batch (with replacement)
       unsigned int iPos, iNeg;
@@ -500,10 +504,6 @@ int main( int argc, char **argv )
       if ( W.rows == 0 )
         W = Mat::zeros( Dists.cols, Dists.cols, CV_32F );
 
-      int64 batchEndTime = getTickCount();
-      printf( "\rStep: %i / %i [%.4f s]", step, LogStep, ( batchEndTime - batchStartTime ) / frequency );
-      fflush(stdout);
-
       if ( step == LogStep )
       {
         printf( "\r");
@@ -557,67 +557,43 @@ int main( int argc, char **argv )
                   ( trainEndTime - trainStartTime ) / frequency,
                   ( validEndTime - validStartTime ) / frequency );
 
-          if ( t >= 1 )
+          /*
+           *  best model full statistics
+           */
+
+          int Dim;
+          double AUC;
+          float FPR95;
+
+          ComputePJStats( DISTs, Labels, W, Dim, FPR95, AUC );
+
+          /*
+           * save best results
+           * for best auc & fpr95
+           */
+
+          if ( ( AUC_Best <= AUC) &&
+               ( FPR95_Best >= FPR95 ) )
           {
-            /*
-             *  best model full statistics
-             */
 
-            int Dim;
-            double AUC;
-            float FPR95;
+            AUC_Best = AUC;
+            FPR95_Best = FPR95;
 
-            // open hdf5 files
-            Mat X;
-            Ptr<HDF5> h5ix = open( "/home/cbalint/work/GITHUB/opencv-dlco/workspace/pj-learn/originals/yosemite-rank_m0.001_g0.5.h5" );
-            h5ix->dsread( X, "W" );
-            h5ix->close();
+            W_Save = W.clone();
 
-            ComputePJStats( Dists, Labels, X, Dim, FPR95, AUC );
+            // log as saved
+            printf( "Best: Dim/MaxDim [%i/%i] AUC: %f (%f) FPR95: %.2f (%.2f) [saved]\n",
+                    Dim, MaxDim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
 
-            /*
-             * save best results
-             * if fit max dim
-             */
-
-            if ( Dim <= MaxDim )
-            {
-/*
-              // open hdf5 files
-              Ptr<HDF5> h5iw = open( OutputH5Filename );
-
-              // create set with unlimited rows
-              if ( ! h5iw->hlexists( "w" ) )
-              {
-                int chunks[2] = { 1, W.cols };
-                h5iw->dscreate( HDF5::H5_UNLIMITED, W.cols, CV_32F, "w", 9, chunks );
-              }
-
-              // get actual size
-              vector<int> wsize = h5iw->dsgetsize( "W" );
-              // append to last row
-              int offset[2] = { wsize[0], 0 };
-              h5iw->dsinsert( w_Best, "w", offset );
-
-              // close
-              h5iw->close();
-*/
-
-              // log as saved
-              printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f FPR95: %.2f [saved]\n",
-                      Dim, MaxDim, AUC, FPR95*100 );
-
-            } else {
-              printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f FPR95: %.2f\n",
-                      Dim, MaxDim, AUC, FPR95*100 );
-            }
+          } else {
+            printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f (%f) FPR95: %.2f (%.2f)\n",
+                    Dim, MaxDim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
           }
         } else {
             printf( "Step: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f) Rank: %i (%i) Ttime: %.4f Vtime: %.4f\n",
                     t, LossVal, Regul, (LossVal + Regul), Obj_Best, W.rows, W_Best.rows,
                     ( trainEndTime - trainStartTime ) / frequency,
                     ( validEndTime - validStartTime ) / frequency );
-
         }
         // flush i/o
         cout << flush;
@@ -628,13 +604,12 @@ int main( int argc, char **argv )
       step++;
     } // end for cycle
 
-              // open hdf5 files
-              Ptr<HDF5> h5iw = open( OutputH5Filename );
-              h5iw->dswrite( W_Best, "W" );
-              // close
-              h5iw->close();
-              h5iw.release();
-
+    // open hdf5 files
+    Ptr<HDF5> h5iw = open( OutputH5Filename );
+    h5iw->dswrite( W_Save, "W" );
+    // close
+    h5iw->close();
+    h5iw.release();
 
     return 0;
 }

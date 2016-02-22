@@ -46,7 +46,7 @@ void ComputePRStats( const int nChannels, const Mat& PRParams,
                      const Mat& Dists, const Mat& Labels, const Mat& w,
                      int& nPR, int &Dim, int& nzDim, float& FPR95, double& AUC,
                      const int MaxDim = -1 );
-void ComputePJStats( const Mat& Dists, const Mat& Labels, const Mat& W,
+void ComputePJStats( const cuda::GpuMat& DISTs, const Mat& Labels, const Mat& W,
                      int& Dim, float& FPR95, double& AUC );
 int TermProgress( double dfComplete , int nLastTick = -1 );
 
