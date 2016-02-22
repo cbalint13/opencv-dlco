@@ -241,9 +241,7 @@ int main( int argc, char **argv )
     double AUC_Best = 0;
     float Obj_Best = FLT_MAX;
     float FPR95_Best = FLT_MAX;
-    Mat W_Best =  Mat::zeros( Dists.cols, Dists.cols, CV_32F );
-    Mat W_Save =  Mat::zeros( Dists.cols, Dists.cols, CV_32F );
-    Mat A_Save =  Mat::zeros( Dists.cols, Dists.cols, CV_32F );
+    Mat W_Best, W_Save, A_Save;
 
     size_t nPosTrn = IdxPos.size() * nDiv;
     size_t nNegTrn = IdxNeg.size() * nDiv;
