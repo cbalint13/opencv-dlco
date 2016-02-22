@@ -60,9 +60,6 @@ namespace dlco {
 void SubtractVectorsByRows( const cuda::GpuMat& src1, const cuda::GpuMat& src2,
                             cuda::GpuMat& dst, cuda::Stream& _stream );
 
-void SubtractVectorsByRowsT( const cuda::GpuMat& src1, const cuda::GpuMat& src2,
-                            cuda::GpuMat& dst, cuda::Stream& _stream );
-
 } // end namespace dlco
 }} // end namespace cv & dlco
 
