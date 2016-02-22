@@ -565,7 +565,7 @@ int main( int argc, char **argv )
            * for best auc & fpr95
            */
 
-          if ( ( AUC_Best <= AUC) &&
+          if ( ( AUC_Best <= AUC ) &&
                ( FPR95_Best >= FPR95 ) )
           {
 
