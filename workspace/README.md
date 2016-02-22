@@ -30,7 +30,7 @@ descriptors of patch-pairs constructed by `filter.h5` layout and stripped
 down by best learnt pool-region filter. Used pooling-regions are manually
 selected at step (6) and hardcoded in this very script.
 
-(04) *08-pjlearn.sh* will learn low rank projection matrices over the
+(08) *08-pjlearn.sh* will learn low rank projection matrices over the
 unprojected distances from step (07). This may take very long time even
 using GPU, up to ~1 week given actual 16 combinations of mu and gamma
 regularization parameters over each 3x3 distances datasets.
