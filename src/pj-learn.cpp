@@ -576,11 +576,11 @@ int main( int argc, char **argv )
             A_Save = A.clone();
 
             // log as saved
-            printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f (%f) FPR95: %.2f (%.2f) [saved]\n",
+            printf( "Stat: Dim/MaxDim [%i/%i] AUC: %.6f (%.6f) FPR95: %.2f (%.2f) [saved]\n",
                     Dim, MaxDim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
 
           } else {
-            printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f (%f) FPR95: %.2f (%.2f)\n",
+            printf( "Stat: Dim/MaxDim [%i/%i] AUC: %.6f (%.6f) FPR95: %.2f (%.2f)\n",
                     Dim, MaxDim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
           }
         } else {

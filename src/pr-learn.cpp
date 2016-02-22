@@ -410,11 +410,11 @@ int main( int argc, char **argv )
               h5iw->close();
 
               // log as saved
-              printf( "Stat: nPR #%i (#%i) Dim/MaxDim [%i/%i] AUC: %f FPR95: %.2f [saved]\n",
+              printf( "Stat: nPR #%i (#%i) Dim/MaxDim [%i/%i] AUC: %.6f FPR95: %.2f [saved]\n",
                       nPR, nzDim, Dim, MaxDim, AUC, FPR95*100 );
             } else {
               // log without save
-              printf( "Stat: nPR #%i (#%i) Dim/MaxDim [%i/%i] AUC: %f FPR95: %.2f\n",
+              printf( "Stat: nPR #%i (#%i) Dim/MaxDim [%i/%i] AUC: %.6f FPR95: %.2f\n",
                       nPR, nzDim, Dim, MaxDim, AUC, FPR95*100 );
             }
           } else {
