@@ -1,4 +1,4 @@
-**Distances Folder**
+**Pool Regions Folder**
 
 
 Folder here contains learnt pooling region filters.
