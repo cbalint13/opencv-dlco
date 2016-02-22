@@ -64,14 +64,14 @@ __global__ static void kSubtractVectorsByRows( const GlobPtrSz<float> src1,
     }
 }
 
-void SubtractVectorsByRows( const cuda::GpuMat& src1, const cuda::GpuMat& src2, cuda::GpuMat& dst, Stream& _stream )
+void SubtractVectorsByRows( const GpuMat& src1, const GpuMat& src2, GpuMat& dst, Stream& _stream )
 {
     const dim3 grid ( 4096, 1, 1 );
     const dim3 block(  512, 1, 1 );
 
     cudaStream_t stream = StreamAccessor::getStream(_stream);
 
-    dst = cuda::GpuMat( src1.rows, 1, CV_32F, Scalar::all(0) );
+    dst = GpuMat( src1.rows, 1, CV_32F, Scalar::all(0) );
     kSubtractVectorsByRows<<< grid, block, 0, stream >>>( globPtr<float>(src1), globPtr<float>(src2), globPtr<float>(dst) );
 
     CV_CUDEV_SAFE_CALL( cudaGetLastError() );
