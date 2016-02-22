@@ -607,7 +607,6 @@ int main( int argc, char **argv )
     h5iw->dswrite( W_Save, "W" );
     // close
     h5iw->close();
-    h5iw.release();
 
     return 0;
 }
