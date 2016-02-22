@@ -580,7 +580,7 @@ int main( int argc, char **argv )
             W_Save = W.clone();
 
             // log as saved
-            printf( "Best: Dim/MaxDim [%i/%i] AUC: %f (%f) FPR95: %.2f (%.2f) [saved]\n",
+            printf( "Stat: Dim/MaxDim [%i/%i] AUC: %f (%f) FPR95: %.2f (%.2f) [saved]\n",
                     Dim, MaxDim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
 
           } else {
