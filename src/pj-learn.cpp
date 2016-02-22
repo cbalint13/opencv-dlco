@@ -307,7 +307,7 @@ int main( int argc, char **argv )
     Mat PosFeatDiffProj, NegFeatDiffProj;
 
     Mat D, mul;
-    Mat IdxNegViol; //, DescDiffPosCur, DescDiffNegCur;
+    Mat IdxNegViol;
 
     unsigned int step = 0;
     int64 trainStartTime = getTickCount();
@@ -351,7 +351,6 @@ int main( int argc, char **argv )
                        DescDiffPosBatch.ptr<float>(0,0), DescDiffPosBatch.cols,
                        0.0f,
                        PosFeatDiffProj.ptr<float>(0,0), PosFeatDiffProj.cols );
-
 
           pow( PosFeatDiffProj, 2, PosFeatDiffProj );
           reduce( PosFeatDiffProj, PosDist, 0, CV_REDUCE_SUM );
