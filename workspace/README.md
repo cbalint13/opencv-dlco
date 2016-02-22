@@ -15,7 +15,8 @@ descriptors of patch-pairs constructed by `filter.h5` full layout.
 (04) *04-prlearn.sh* will learn low dimensional efficient pool-regions over
 the `filter.h5` using precomputed distances. This may take very long time
 even using GPU, up to ~1 week given actual 256 combinations of mu and gamma
-regularization parameters over the three datasets.
+regularization parameters over the three datasets. Results and logs will be
+stored within `pr-learn` folder.
 
 (05) *05-prstats.sh* will compute and log performance statistics for all
 learnt pool-region filters like: false positive rate, area under curve and
@@ -33,7 +34,8 @@ selected at step (6) and hardcoded in this very script.
 (08) *08-pjlearn.sh* will learn low rank projection matrices over the
 unprojected distances from step (07). This may take very long time even
 using GPU, up to ~1 week given actual 16 combinations of mu and gamma
-regularization parameters over each 3x3 distances datasets.
+regularization parameters over each 3x3 distances datasets. Results and
+logs will be stored within `pj-learn` folder.
 
 -----------------------------------------------------------------------------
 
