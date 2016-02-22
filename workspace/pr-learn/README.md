@@ -1,9 +1,9 @@
 **Distances Folder**
 
 
-* Folder here contains learnt pooling region filters.
+Folder here contains learnt pooling region filters.
 
-* Floder `logging` contains all computation logs.
-* Folder `originals/` contain author original learnt filters.
-* Folder `olderbest/` contain previously learnt best filters.
+* Folder `logging` contains all computation logs.
+* Folder `originals` contain author original learnt filters.
+* Folder `olderbest` contain previously learnt best filters.
 
