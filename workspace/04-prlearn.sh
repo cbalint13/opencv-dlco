@@ -13,7 +13,7 @@ for ds in "yosemite" "notredame" "liberty"
     for gamma in 0.005 0.010 0.015 0.020 0.025 0.030 0.040 0.050 0.075 0.100 0.125 0.150 0.175 0.200 0.225 0.250
       do
 
-      result=$(cat pr-learn/logging/$ds-$mu-$gamma-pr.log | grep "Step\: 50000000")
+      result=$(cat pr-learn/logging/$ds-$mu-$gamma-pr.log | grep "\: 5000000  Loss\:")
 
       if [ ${#result} -eq 0 ]
       then

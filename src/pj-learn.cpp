@@ -506,8 +506,6 @@ int main( int argc, char **argv )
 
       if ( step == LogStep )
       {
-        printf( "\r");
-
         int64 trainEndTime = getTickCount();
         int64 validStartTime = getTickCount();
 
