@@ -235,9 +235,6 @@ int main( int argc, char **argv )
     randShuffle( IdxPos );
     randShuffle( IdxNeg );
 
-    Mat f, df;
-    Mat FeatDiff( 1, FeatDim, CV_32F );
-
     double AUC_Best = 0;
     float Obj_Best = FLT_MAX;
     float FPR95_Best = FLT_MAX;
@@ -606,6 +603,7 @@ int main( int argc, char **argv )
     Ptr<HDF5> h5iw = open( OutputH5Filename );
     h5iw->dswrite( W_Save, "W" );
     h5iw->dswrite( A_Save, "A" );
+
     // close
     h5iw->close();
 
