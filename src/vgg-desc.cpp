@@ -142,7 +142,7 @@ Mat get_desc( Mat Patch, int nAngleBins, float InitSigma, bool bNorm )
       {
         if ( Bin1T.at<uchar>(p) == i )
           PatchTrans.at<float>(p,i) = w1.at<float>(p) * GMagT.at<float>(p);
-        if ( Bin2T.at<uchar>(p) == i)
+        if ( Bin2T.at<uchar>(p) == i )
           PatchTrans.at<float>(p,i) = w2.at<float>(p) * GMagT.at<float>(p);
       }
     }
