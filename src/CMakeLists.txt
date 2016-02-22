@@ -1,5 +1,5 @@
 #/*
-# *  Copyright (c) 2012  Balint Cristian (cristian dot balint at gmail dot com)
+# *  Copyright (c) 2014  Balint Cristian (cristian dot balint at gmail dot com)
 # *
 # * Redistribution and use in source and binary forms, with or without
 # * modification, are permitted provided that the following conditions are met:
