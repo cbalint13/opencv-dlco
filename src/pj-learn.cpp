@@ -390,9 +390,8 @@ int main( int argc, char **argv )
         // % DescDiffPosCur = DescDiffPosBatch(:, iPos);
         Mat DescDiffPosCur = DescDiffPosBatch.row( iPos );
 
-        // % DescDiffNegCur = DescDiffNegBatch(:, IdxNegViol)
-
         Mat DescDiffNegCur;
+        // % DescDiffNegCur = DescDiffNegBatch(:, IdxNegViol)
         for ( int k = 0; k < NegDist.cols; k++ )
           if ( IdxNegViol.at<uchar>( 0, k ) != 0 )
             DescDiffNegCur.push_back( DescDiffNegBatch.row( k ) );
