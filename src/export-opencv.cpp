@@ -204,9 +204,6 @@ int main( int argc, char **argv )
       exit(0);
     }
 
-    printf( "PR %.64f\n", sum((sPRFilters))[0] );
-    printf( "PJ %.64f\n", sum((W))[0] );
-
     // open C header file for write
     FILE * out = fopen( OutHeadername, "w" );
 
@@ -260,7 +257,10 @@ int main( int argc, char **argv )
             fprintf( out, "0x%x,0x%X", start, count );
 
             if ( total == 0 )
+            {
               fprintf( out, "\n};\n" );
+              break;
+            }
             else fprintf( out, "," );
 
             if ( idx % 8 == 0 ) fprintf( out, "\n " );
@@ -343,7 +343,10 @@ int main( int argc, char **argv )
             fprintf( out, "0x%x,0x%X", start, count );
 
             if ( total == 0 )
+            {
               fprintf( out, "\n};\n" );
+              break;
+            }
             else fprintf( out, "," );
 
             if ( idx % 8 == 0 ) fprintf( out, "\n " );
