@@ -42,7 +42,7 @@ Mat get_desc( Mat Patch, int nAngleBins, float InitSigma, bool bNorm )
     // % Patch = single(Patch);
     Patch.convertTo( Patch, CV_32F );
     // % smooth
-    GaussianBlur( Patch, Patch, Size( 0, 0 ), InitSigma, InitSigma, BORDER_REPLICATE);
+    GaussianBlur( Patch, Patch, Size( 0, 0 ), InitSigma, InitSigma, BORDER_REPLICATE );
 
     Mat Ix, Iy;
     // % compute gradient
