@@ -28,8 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* pr-learn.cu */
-/* PR learn cuda kernels */
+/* kernelop-opencv.cu */
+/* CUDA kernels */
 
 #include "stdio.h"
 

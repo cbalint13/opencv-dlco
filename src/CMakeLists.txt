@@ -56,3 +56,6 @@ TARGET_LINK_LIBRARIES(comp-uprjdists ${OpenCV_LIBS})
 
 ADD_EXECUTABLE(pj-learn $<TARGET_OBJECTS:misc> pj-learn.cpp ${OPCUOPENCV})
 TARGET_LINK_LIBRARIES(pj-learn ${OpenCV_LIBS} ${CUDA_CUDART_LIBRARY} ${OpenBLAS_LIB})
+
+ADD_EXECUTABLE(export-opencv $<TARGET_OBJECTS:misc> export-opencv.cpp)
+TARGET_LINK_LIBRARIES(export-opencv ${OpenCV_LIBS})
