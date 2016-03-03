@@ -51,6 +51,11 @@ IEEE Transactions on Pattern Analysis and Machine Intelligence, 2011
 
 ---------------------------------------------------------------------------------------
 
+03-Mar-2016
+
+ - Projection matrix learnt over 9x16 combinations of mu & gamma regularizers.
+ - Export tool that convert and compact learnt matrices into OpenCV's VGG `*.i` C code.
+
 18-Jan-2016
 
  - Fixed conv-imgpatches.cpp, very last ending image patch was missing.
@@ -65,6 +70,5 @@ IEEE Transactions on Pattern Analysis and Machine Intelligence, 2011
 
 TODO:
 
- - Projection matrix computation & selection tools for best projection matrix.
- - Export tool that convert and compact learnt matrices into OpenCV's VGG `*.i` C code.
  - Hamming distance binarisation part of the DLCO, add it to OpenCV VGG descriptor too.
+1
