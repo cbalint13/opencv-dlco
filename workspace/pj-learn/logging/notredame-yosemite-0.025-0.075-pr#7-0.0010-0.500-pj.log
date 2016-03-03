@@ -1,0 +1,557 @@
+mu: 0.001 gamma: 0.5 maxdim: 80 nIters: 50000
+Load Labels: 500000
+Load Distances: 500000 x 480
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Positive samples #250000
+Negative samples #250000
+Positive train #200000
+Negative train #200000
+Positive valid #50000
+Negative valid #50000
+
+Found GPU: GeForce GTX 970
+Compute Capability: 5.2
+
+Best: 100  Loss: 0.093572 Regul: 0.016388 Obj: 0.109960 (0.109960) Rank: 120 (120) Ttime: 5.7730 Vtime: 0.1133
+Stat: Dim/MaxDim [120/80] AUC: 0.984806 (0.984806) FPR95: 7.04 (7.04) [saved]
+Best: 200  Loss: 0.050379 Regul: 0.010207 Obj: 0.060586 (0.060586) Rank: 94 (94) Ttime: 5.6444 Vtime: 0.0313
+Stat: Dim/MaxDim [94/80] AUC: 0.986696 (0.986696) FPR95: 5.67 (5.67) [saved]
+Best: 300  Loss: 0.040085 Regul: 0.007749 Obj: 0.047834 (0.047834) Rank: 84 (84) Ttime: 5.6620 Vtime: 0.0310
+Stat: Dim/MaxDim [84/80] AUC: 0.987720 (0.987720) FPR95: 5.12 (5.12) [saved]
+Best: 400  Loss: 0.035733 Regul: 0.006595 Obj: 0.042329 (0.042329) Rank: 76 (76) Ttime: 5.7651 Vtime: 0.0270
+Stat: Dim/MaxDim [76/80] AUC: 0.988491 (0.988491) FPR95: 4.44 (4.44) [saved]
+Best: 500  Loss: 0.033189 Regul: 0.005998 Obj: 0.039187 (0.039187) Rank: 73 (73) Ttime: 5.8568 Vtime: 0.0269
+Stat: Dim/MaxDim [73/80] AUC: 0.989162 (0.989162) FPR95: 4.27 (4.27) [saved]
+Best: 600  Loss: 0.032791 Regul: 0.005748 Obj: 0.038539 (0.038539) Rank: 73 (73) Ttime: 5.8757 Vtime: 0.0261
+Stat: Dim/MaxDim [73/80] AUC: 0.989306 (0.989306) FPR95: 4.17 (4.17) [saved]
+Best: 700  Loss: 0.032154 Regul: 0.005656 Obj: 0.037810 (0.037810) Rank: 69 (69) Ttime: 5.9049 Vtime: 0.0274
+Stat: Dim/MaxDim [69/80] AUC: 0.989522 (0.989522) FPR95: 4.01 (4.01) [saved]
+Best: 800  Loss: 0.031517 Regul: 0.005544 Obj: 0.037060 (0.037060) Rank: 70 (70) Ttime: 5.8206 Vtime: 0.0268
+Stat: Dim/MaxDim [70/80] AUC: 0.989808 (0.989808) FPR95: 3.78 (3.78) [saved]
+Best: 900  Loss: 0.031435 Regul: 0.005476 Obj: 0.036911 (0.036911) Rank: 67 (67) Ttime: 5.8215 Vtime: 0.0268
+Stat: Dim/MaxDim [67/80] AUC: 0.989925 (0.989808) FPR95: 3.81 (3.78)
+Best: 1000  Loss: 0.030729 Regul: 0.005490 Obj: 0.036218 (0.036218) Rank: 67 (67) Ttime: 5.8716 Vtime: 0.0263
+Stat: Dim/MaxDim [67/80] AUC: 0.990246 (0.990246) FPR95: 3.64 (3.64) [saved]
+Best: 1100  Loss: 0.030672 Regul: 0.005461 Obj: 0.036133 (0.036133) Rank: 67 (67) Ttime: 5.7933 Vtime: 0.0261
+Stat: Dim/MaxDim [67/80] AUC: 0.990251 (0.990251) FPR95: 3.61 (3.61) [saved]
+Best: 1200  Loss: 0.030520 Regul: 0.005430 Obj: 0.035949 (0.035949) Rank: 66 (66) Ttime: 5.8039 Vtime: 0.0265
+Stat: Dim/MaxDim [66/80] AUC: 0.990365 (0.990365) FPR95: 3.52 (3.52) [saved]
+Best: 1300  Loss: 0.030341 Regul: 0.005423 Obj: 0.035764 (0.035764) Rank: 66 (66) Ttime: 5.8348 Vtime: 0.0262
+Stat: Dim/MaxDim [66/80] AUC: 0.990441 (0.990441) FPR95: 3.51 (3.51) [saved]
+Step: 1400  Loss: 0.030410 Regul: 0.005447 Obj: 0.035857 (0.035764) Rank: 66 (66) Ttime: 5.8629 Vtime: 0.0265
+Best: 1500  Loss: 0.030080 Regul: 0.005460 Obj: 0.035539 (0.035539) Rank: 65 (65) Ttime: 5.8739 Vtime: 0.0272
+Stat: Dim/MaxDim [65/80] AUC: 0.990577 (0.990577) FPR95: 3.38 (3.38) [saved]
+Best: 1600  Loss: 0.029729 Regul: 0.005465 Obj: 0.035194 (0.035194) Rank: 65 (65) Ttime: 5.8012 Vtime: 0.0260
+Stat: Dim/MaxDim [65/80] AUC: 0.990661 (0.990577) FPR95: 3.47 (3.38)
+Best: 1700  Loss: 0.029352 Regul: 0.005499 Obj: 0.034851 (0.034851) Rank: 66 (66) Ttime: 5.9077 Vtime: 0.0265
+Stat: Dim/MaxDim [66/80] AUC: 0.990839 (0.990839) FPR95: 3.22 (3.22) [saved]
+Best: 1800  Loss: 0.029217 Regul: 0.005536 Obj: 0.034752 (0.034752) Rank: 66 (66) Ttime: 5.8597 Vtime: 0.0262
+Stat: Dim/MaxDim [66/80] AUC: 0.990882 (0.990839) FPR95: 3.30 (3.22)
+Best: 1900  Loss: 0.029070 Regul: 0.005527 Obj: 0.034597 (0.034597) Rank: 66 (66) Ttime: 5.7889 Vtime: 0.0265
+Stat: Dim/MaxDim [66/80] AUC: 0.990898 (0.990839) FPR95: 3.38 (3.22)
+Step: 2000  Loss: 0.029173 Regul: 0.005516 Obj: 0.034689 (0.034597) Rank: 65 (66) Ttime: 5.8601 Vtime: 0.0269
+Step: 2100  Loss: 0.029125 Regul: 0.005562 Obj: 0.034687 (0.034597) Rank: 65 (66) Ttime: 5.7817 Vtime: 0.0261
+Step: 2200  Loss: 0.029208 Regul: 0.005564 Obj: 0.034772 (0.034597) Rank: 65 (66) Ttime: 5.8406 Vtime: 0.0261
+Step: 2300  Loss: 0.029276 Regul: 0.005565 Obj: 0.034842 (0.034597) Rank: 65 (66) Ttime: 5.7492 Vtime: 0.0263
+Step: 2400  Loss: 0.029397 Regul: 0.005553 Obj: 0.034950 (0.034597) Rank: 65 (66) Ttime: 5.8013 Vtime: 0.0267
+Step: 2500  Loss: 0.029072 Regul: 0.005566 Obj: 0.034638 (0.034597) Rank: 65 (66) Ttime: 5.8394 Vtime: 0.0270
+Best: 2600  Loss: 0.028920 Regul: 0.005591 Obj: 0.034511 (0.034511) Rank: 65 (65) Ttime: 5.7725 Vtime: 0.0268
+Stat: Dim/MaxDim [65/80] AUC: 0.991208 (0.991208) FPR95: 3.07 (3.07) [saved]
+Step: 2700  Loss: 0.028974 Regul: 0.005582 Obj: 0.034556 (0.034511) Rank: 65 (65) Ttime: 5.7196 Vtime: 0.0262
+Best: 2800  Loss: 0.028832 Regul: 0.005593 Obj: 0.034426 (0.034426) Rank: 64 (64) Ttime: 5.6964 Vtime: 0.0227
+Stat: Dim/MaxDim [64/80] AUC: 0.991267 (0.991267) FPR95: 3.07 (3.07) [saved]
+Best: 2900  Loss: 0.028682 Regul: 0.005597 Obj: 0.034279 (0.034279) Rank: 64 (64) Ttime: 5.7996 Vtime: 0.0222
+Stat: Dim/MaxDim [64/80] AUC: 0.991319 (0.991319) FPR95: 3.06 (3.06) [saved]
+Step: 3000  Loss: 0.028780 Regul: 0.005593 Obj: 0.034373 (0.034279) Rank: 64 (64) Ttime: 5.7848 Vtime: 0.0225
+Step: 3100  Loss: 0.028887 Regul: 0.005607 Obj: 0.034495 (0.034279) Rank: 64 (64) Ttime: 5.7490 Vtime: 0.0218
+Step: 3200  Loss: 0.028749 Regul: 0.005626 Obj: 0.034375 (0.034279) Rank: 64 (64) Ttime: 5.7167 Vtime: 0.0227
+Step: 3300  Loss: 0.028761 Regul: 0.005641 Obj: 0.034402 (0.034279) Rank: 64 (64) Ttime: 5.7741 Vtime: 0.0221
+Best: 3400  Loss: 0.028542 Regul: 0.005650 Obj: 0.034192 (0.034192) Rank: 65 (65) Ttime: 5.7793 Vtime: 0.0277
+Stat: Dim/MaxDim [65/80] AUC: 0.991401 (0.991401) FPR95: 2.97 (2.97) [saved]
+Step: 3500  Loss: 0.028686 Regul: 0.005652 Obj: 0.034338 (0.034192) Rank: 64 (65) Ttime: 5.7215 Vtime: 0.0225
+Step: 3600  Loss: 0.028600 Regul: 0.005660 Obj: 0.034260 (0.034192) Rank: 64 (65) Ttime: 5.6790 Vtime: 0.0221
+Step: 3700  Loss: 0.028520 Regul: 0.005672 Obj: 0.034192 (0.034192) Rank: 64 (65) Ttime: 5.7668 Vtime: 0.0225
+Best: 3800  Loss: 0.028453 Regul: 0.005694 Obj: 0.034147 (0.034147) Rank: 64 (64) Ttime: 5.7957 Vtime: 0.0225
+Stat: Dim/MaxDim [64/80] AUC: 0.991493 (0.991493) FPR95: 2.95 (2.95) [saved]
+Step: 3900  Loss: 0.028583 Regul: 0.005698 Obj: 0.034281 (0.034147) Rank: 64 (64) Ttime: 5.7839 Vtime: 0.0226
+Step: 4000  Loss: 0.028479 Regul: 0.005707 Obj: 0.034187 (0.034147) Rank: 64 (64) Ttime: 5.7485 Vtime: 0.0225
+Step: 4100  Loss: 0.028582 Regul: 0.005705 Obj: 0.034287 (0.034147) Rank: 64 (64) Ttime: 5.7088 Vtime: 0.0223
+Best: 4200  Loss: 0.028304 Regul: 0.005710 Obj: 0.034014 (0.034014) Rank: 64 (64) Ttime: 5.7318 Vtime: 0.0226
+Stat: Dim/MaxDim [64/80] AUC: 0.991572 (0.991572) FPR95: 2.95 (2.95) [saved]
+Step: 4300  Loss: 0.028352 Regul: 0.005720 Obj: 0.034071 (0.034014) Rank: 64 (64) Ttime: 5.7049 Vtime: 0.0226
+Step: 4400  Loss: 0.028318 Regul: 0.005717 Obj: 0.034034 (0.034014) Rank: 63 (64) Ttime: 5.7853 Vtime: 0.0220
+Step: 4500  Loss: 0.028312 Regul: 0.005730 Obj: 0.034041 (0.034014) Rank: 64 (64) Ttime: 5.7038 Vtime: 0.0233
+Best: 4600  Loss: 0.028097 Regul: 0.005734 Obj: 0.033830 (0.033830) Rank: 63 (63) Ttime: 5.8070 Vtime: 0.0214
+Stat: Dim/MaxDim [63/80] AUC: 0.991651 (0.991651) FPR95: 2.90 (2.90) [saved]
+Step: 4700  Loss: 0.028378 Regul: 0.005740 Obj: 0.034117 (0.033830) Rank: 63 (63) Ttime: 5.7481 Vtime: 0.0215
+Step: 4800  Loss: 0.028270 Regul: 0.005768 Obj: 0.034038 (0.033830) Rank: 64 (63) Ttime: 5.7246 Vtime: 0.0232
+Step: 4900  Loss: 0.028067 Regul: 0.005770 Obj: 0.033838 (0.033830) Rank: 64 (63) Ttime: 5.7257 Vtime: 0.0225
+Step: 5000  Loss: 0.028107 Regul: 0.005773 Obj: 0.033880 (0.033830) Rank: 64 (63) Ttime: 5.6901 Vtime: 0.0219
+Best: 5100  Loss: 0.027871 Regul: 0.005790 Obj: 0.033661 (0.033661) Rank: 64 (64) Ttime: 5.7251 Vtime: 0.0221
+Stat: Dim/MaxDim [64/80] AUC: 0.991699 (0.991651) FPR95: 2.91 (2.90)
+Step: 5200  Loss: 0.027954 Regul: 0.005788 Obj: 0.033742 (0.033661) Rank: 63 (64) Ttime: 5.7860 Vtime: 0.0218
+Step: 5300  Loss: 0.027877 Regul: 0.005803 Obj: 0.033680 (0.033661) Rank: 64 (64) Ttime: 5.7662 Vtime: 0.0232
+Step: 5400  Loss: 0.028013 Regul: 0.005801 Obj: 0.033814 (0.033661) Rank: 64 (64) Ttime: 5.6734 Vtime: 0.0224
+Step: 5500  Loss: 0.027857 Regul: 0.005808 Obj: 0.033665 (0.033661) Rank: 64 (64) Ttime: 5.7830 Vtime: 0.0224
+Step: 5600  Loss: 0.027939 Regul: 0.005803 Obj: 0.033742 (0.033661) Rank: 63 (64) Ttime: 5.5918 Vtime: 0.0223
+Step: 5700  Loss: 0.027910 Regul: 0.005810 Obj: 0.033720 (0.033661) Rank: 64 (64) Ttime: 5.5784 Vtime: 0.0232
+Step: 5800  Loss: 0.027881 Regul: 0.005821 Obj: 0.033702 (0.033661) Rank: 64 (64) Ttime: 5.7215 Vtime: 0.0227
+Step: 5900  Loss: 0.027944 Regul: 0.005828 Obj: 0.033772 (0.033661) Rank: 63 (64) Ttime: 5.6833 Vtime: 0.0213
+Step: 6000  Loss: 0.027876 Regul: 0.005845 Obj: 0.033721 (0.033661) Rank: 64 (64) Ttime: 5.6611 Vtime: 0.0226
+Best: 6100  Loss: 0.027791 Regul: 0.005869 Obj: 0.033660 (0.033660) Rank: 64 (64) Ttime: 5.5941 Vtime: 0.0221
+Stat: Dim/MaxDim [64/80] AUC: 0.991788 (0.991788) FPR95: 2.80 (2.80) [saved]
+Best: 6200  Loss: 0.027769 Regul: 0.005864 Obj: 0.033633 (0.033633) Rank: 64 (64) Ttime: 5.7006 Vtime: 0.0225
+Stat: Dim/MaxDim [64/80] AUC: 0.991817 (0.991817) FPR95: 2.79 (2.79) [saved]
+Step: 6300  Loss: 0.027885 Regul: 0.005858 Obj: 0.033743 (0.033633) Rank: 64 (64) Ttime: 5.6632 Vtime: 0.0218
+Step: 6400  Loss: 0.027922 Regul: 0.005866 Obj: 0.033788 (0.033633) Rank: 64 (64) Ttime: 5.6653 Vtime: 0.0227
+Best: 6500  Loss: 0.027715 Regul: 0.005882 Obj: 0.033596 (0.033596) Rank: 64 (64) Ttime: 5.7071 Vtime: 0.0223
+Stat: Dim/MaxDim [64/80] AUC: 0.991844 (0.991817) FPR95: 2.82 (2.79)
+Step: 6600  Loss: 0.027808 Regul: 0.005905 Obj: 0.033712 (0.033596) Rank: 64 (64) Ttime: 5.6906 Vtime: 0.0228
+Step: 6700  Loss: 0.027733 Regul: 0.005889 Obj: 0.033622 (0.033596) Rank: 64 (64) Ttime: 5.6846 Vtime: 0.0227
+Step: 6800  Loss: 0.027831 Regul: 0.005878 Obj: 0.033708 (0.033596) Rank: 64 (64) Ttime: 5.6748 Vtime: 0.0223
+Step: 6900  Loss: 0.027906 Regul: 0.005874 Obj: 0.033780 (0.033596) Rank: 63 (64) Ttime: 5.7470 Vtime: 0.0214
+Step: 7000  Loss: 0.027842 Regul: 0.005878 Obj: 0.033720 (0.033596) Rank: 63 (64) Ttime: 5.6827 Vtime: 0.0208
+Step: 7100  Loss: 0.027944 Regul: 0.005880 Obj: 0.033824 (0.033596) Rank: 63 (64) Ttime: 5.6907 Vtime: 0.0211
+Step: 7200  Loss: 0.027890 Regul: 0.005877 Obj: 0.033767 (0.033596) Rank: 63 (64) Ttime: 5.5943 Vtime: 0.0210
+Step: 7300  Loss: 0.027875 Regul: 0.005884 Obj: 0.033759 (0.033596) Rank: 63 (64) Ttime: 5.6330 Vtime: 0.0211
+Best: 7400  Loss: 0.027641 Regul: 0.005888 Obj: 0.033529 (0.033529) Rank: 63 (63) Ttime: 5.6136 Vtime: 0.0206
+Stat: Dim/MaxDim [63/80] AUC: 0.991889 (0.991817) FPR95: 2.80 (2.79)
+Step: 7500  Loss: 0.027686 Regul: 0.005906 Obj: 0.033592 (0.033529) Rank: 63 (63) Ttime: 5.7329 Vtime: 0.0211
+Step: 7600  Loss: 0.027903 Regul: 0.005910 Obj: 0.033813 (0.033529) Rank: 63 (63) Ttime: 5.7235 Vtime: 0.0211
+Step: 7700  Loss: 0.027762 Regul: 0.005917 Obj: 0.033679 (0.033529) Rank: 63 (63) Ttime: 5.6669 Vtime: 0.0210
+Step: 7800  Loss: 0.027853 Regul: 0.005917 Obj: 0.033770 (0.033529) Rank: 63 (63) Ttime: 5.6703 Vtime: 0.0215
+Step: 7900  Loss: 0.027980 Regul: 0.005906 Obj: 0.033885 (0.033529) Rank: 63 (63) Ttime: 5.6859 Vtime: 0.0206
+Step: 8000  Loss: 0.027950 Regul: 0.005895 Obj: 0.033845 (0.033529) Rank: 63 (63) Ttime: 5.6574 Vtime: 0.0212
+Step: 8100  Loss: 0.027929 Regul: 0.005907 Obj: 0.033836 (0.033529) Rank: 63 (63) Ttime: 5.6747 Vtime: 0.0214
+Step: 8200  Loss: 0.027879 Regul: 0.005904 Obj: 0.033782 (0.033529) Rank: 63 (63) Ttime: 5.7104 Vtime: 0.0210
+Step: 8300  Loss: 0.027669 Regul: 0.005918 Obj: 0.033588 (0.033529) Rank: 63 (63) Ttime: 5.8201 Vtime: 0.0208
+Step: 8400  Loss: 0.027601 Regul: 0.005933 Obj: 0.033534 (0.033529) Rank: 63 (63) Ttime: 5.6901 Vtime: 0.0210
+Step: 8500  Loss: 0.027595 Regul: 0.005939 Obj: 0.033534 (0.033529) Rank: 63 (63) Ttime: 5.6651 Vtime: 0.0214
+Step: 8600  Loss: 0.027658 Regul: 0.005944 Obj: 0.033602 (0.033529) Rank: 63 (63) Ttime: 5.7271 Vtime: 0.0211
+Step: 8700  Loss: 0.027687 Regul: 0.005950 Obj: 0.033637 (0.033529) Rank: 63 (63) Ttime: 5.6688 Vtime: 0.0208
+Step: 8800  Loss: 0.027643 Regul: 0.005946 Obj: 0.033590 (0.033529) Rank: 63 (63) Ttime: 5.6255 Vtime: 0.0209
+Best: 8900  Loss: 0.027567 Regul: 0.005943 Obj: 0.033510 (0.033510) Rank: 63 (63) Ttime: 5.7206 Vtime: 0.0209
+Stat: Dim/MaxDim [63/80] AUC: 0.991942 (0.991942) FPR95: 2.75 (2.75) [saved]
+Step: 9000  Loss: 0.027623 Regul: 0.005933 Obj: 0.033556 (0.033510) Rank: 63 (63) Ttime: 5.7461 Vtime: 0.0215
+Step: 9100  Loss: 0.027723 Regul: 0.005934 Obj: 0.033658 (0.033510) Rank: 63 (63) Ttime: 5.6548 Vtime: 0.0221
+Step: 9200  Loss: 0.027727 Regul: 0.005938 Obj: 0.033664 (0.033510) Rank: 63 (63) Ttime: 5.5967 Vtime: 0.0208
+Step: 9300  Loss: 0.027712 Regul: 0.005943 Obj: 0.033654 (0.033510) Rank: 63 (63) Ttime: 5.6323 Vtime: 0.0213
+Step: 9400  Loss: 0.027738 Regul: 0.005939 Obj: 0.033677 (0.033510) Rank: 63 (63) Ttime: 5.6903 Vtime: 0.0212
+Step: 9500  Loss: 0.027747 Regul: 0.005942 Obj: 0.033690 (0.033510) Rank: 63 (63) Ttime: 5.6691 Vtime: 0.0215
+Step: 9600  Loss: 0.027735 Regul: 0.005943 Obj: 0.033678 (0.033510) Rank: 63 (63) Ttime: 5.7532 Vtime: 0.0215
+Step: 9700  Loss: 0.027672 Regul: 0.005951 Obj: 0.033623 (0.033510) Rank: 63 (63) Ttime: 5.7356 Vtime: 0.0215
+Step: 9800  Loss: 0.027640 Regul: 0.005954 Obj: 0.033594 (0.033510) Rank: 63 (63) Ttime: 5.6795 Vtime: 0.0213
+Step: 9900  Loss: 0.027628 Regul: 0.005954 Obj: 0.033581 (0.033510) Rank: 63 (63) Ttime: 5.6947 Vtime: 0.0210
+Step: 10000  Loss: 0.027720 Regul: 0.005959 Obj: 0.033679 (0.033510) Rank: 63 (63) Ttime: 5.6171 Vtime: 0.0214
+Step: 10100  Loss: 0.027751 Regul: 0.005952 Obj: 0.033702 (0.033510) Rank: 63 (63) Ttime: 5.6004 Vtime: 0.0214
+Step: 10200  Loss: 0.027744 Regul: 0.005954 Obj: 0.033698 (0.033510) Rank: 63 (63) Ttime: 5.6909 Vtime: 0.0213
+Step: 10300  Loss: 0.027694 Regul: 0.005972 Obj: 0.033666 (0.033510) Rank: 63 (63) Ttime: 5.6429 Vtime: 0.0210
+Step: 10400  Loss: 0.027752 Regul: 0.005978 Obj: 0.033731 (0.033510) Rank: 63 (63) Ttime: 5.6623 Vtime: 0.0208
+Step: 10500  Loss: 0.027745 Regul: 0.005968 Obj: 0.033713 (0.033510) Rank: 63 (63) Ttime: 5.6166 Vtime: 0.0210
+Step: 10600  Loss: 0.027714 Regul: 0.005965 Obj: 0.033678 (0.033510) Rank: 63 (63) Ttime: 5.6475 Vtime: 0.0212
+Step: 10700  Loss: 0.027681 Regul: 0.005969 Obj: 0.033650 (0.033510) Rank: 63 (63) Ttime: 5.6694 Vtime: 0.0217
+Step: 10800  Loss: 0.027674 Regul: 0.005984 Obj: 0.033658 (0.033510) Rank: 63 (63) Ttime: 5.6956 Vtime: 0.0218
+Step: 10900  Loss: 0.027688 Regul: 0.005998 Obj: 0.033686 (0.033510) Rank: 63 (63) Ttime: 5.6451 Vtime: 0.0207
+Step: 11000  Loss: 0.027596 Regul: 0.006007 Obj: 0.033603 (0.033510) Rank: 63 (63) Ttime: 5.6188 Vtime: 0.0205
+Step: 11100  Loss: 0.027563 Regul: 0.006006 Obj: 0.033569 (0.033510) Rank: 63 (63) Ttime: 5.6772 Vtime: 0.0214
+Step: 11200  Loss: 0.027538 Regul: 0.006006 Obj: 0.033544 (0.033510) Rank: 63 (63) Ttime: 5.5808 Vtime: 0.0212
+Step: 11300  Loss: 0.027628 Regul: 0.005991 Obj: 0.033618 (0.033510) Rank: 63 (63) Ttime: 5.5726 Vtime: 0.0211
+Best: 11400  Loss: 0.027479 Regul: 0.005991 Obj: 0.033470 (0.033470) Rank: 63 (63) Ttime: 5.6815 Vtime: 0.0211
+Stat: Dim/MaxDim [63/80] AUC: 0.992082 (0.992082) FPR95: 2.72 (2.72) [saved]
+Best: 11500  Loss: 0.027467 Regul: 0.005997 Obj: 0.033464 (0.033464) Rank: 63 (63) Ttime: 5.6295 Vtime: 0.0209
+Stat: Dim/MaxDim [63/80] AUC: 0.992077 (0.992082) FPR95: 2.73 (2.72)
+Step: 11600  Loss: 0.027485 Regul: 0.006005 Obj: 0.033489 (0.033464) Rank: 63 (63) Ttime: 5.6244 Vtime: 0.0212
+Step: 11700  Loss: 0.027531 Regul: 0.006011 Obj: 0.033542 (0.033464) Rank: 63 (63) Ttime: 5.6850 Vtime: 0.0212
+Step: 11800  Loss: 0.027484 Regul: 0.006015 Obj: 0.033500 (0.033464) Rank: 63 (63) Ttime: 5.7572 Vtime: 0.0211
+Best: 11900  Loss: 0.027398 Regul: 0.006011 Obj: 0.033409 (0.033409) Rank: 63 (63) Ttime: 5.6798 Vtime: 0.0213
+Stat: Dim/MaxDim [63/80] AUC: 0.992100 (0.992100) FPR95: 2.69 (2.69) [saved]
+Step: 12000  Loss: 0.027449 Regul: 0.006030 Obj: 0.033479 (0.033409) Rank: 62 (63) Ttime: 5.7361 Vtime: 0.0212
+Best: 12100  Loss: 0.027378 Regul: 0.006018 Obj: 0.033396 (0.033396) Rank: 62 (62) Ttime: 5.6163 Vtime: 0.0206
+Stat: Dim/MaxDim [62/80] AUC: 0.992098 (0.992100) FPR95: 2.74 (2.69)
+Step: 12200  Loss: 0.027378 Regul: 0.006030 Obj: 0.033408 (0.033396) Rank: 62 (62) Ttime: 5.6389 Vtime: 0.0212
+Step: 12300  Loss: 0.027468 Regul: 0.006034 Obj: 0.033502 (0.033396) Rank: 62 (62) Ttime: 5.7291 Vtime: 0.0211
+Step: 12400  Loss: 0.027475 Regul: 0.006037 Obj: 0.033512 (0.033396) Rank: 62 (62) Ttime: 5.6589 Vtime: 0.0213
+Step: 12500  Loss: 0.027394 Regul: 0.006035 Obj: 0.033429 (0.033396) Rank: 62 (62) Ttime: 5.6871 Vtime: 0.0217
+Best: 12600  Loss: 0.027331 Regul: 0.006032 Obj: 0.033364 (0.033364) Rank: 62 (62) Ttime: 5.7118 Vtime: 0.0213
+Stat: Dim/MaxDim [62/80] AUC: 0.992112 (0.992100) FPR95: 2.70 (2.69)
+Step: 12700  Loss: 0.027331 Regul: 0.006036 Obj: 0.033367 (0.033364) Rank: 62 (62) Ttime: 5.6358 Vtime: 0.0211
+Step: 12800  Loss: 0.027481 Regul: 0.006033 Obj: 0.033513 (0.033364) Rank: 62 (62) Ttime: 5.6314 Vtime: 0.0207
+Step: 12900  Loss: 0.027453 Regul: 0.006034 Obj: 0.033487 (0.033364) Rank: 62 (62) Ttime: 5.7090 Vtime: 0.0216
+Step: 13000  Loss: 0.027418 Regul: 0.006036 Obj: 0.033454 (0.033364) Rank: 62 (62) Ttime: 5.6400 Vtime: 0.0213
+Step: 13100  Loss: 0.027419 Regul: 0.006038 Obj: 0.033457 (0.033364) Rank: 62 (62) Ttime: 5.6114 Vtime: 0.0206
+Step: 13200  Loss: 0.027362 Regul: 0.006042 Obj: 0.033403 (0.033364) Rank: 62 (62) Ttime: 5.6907 Vtime: 0.0210
+Step: 13300  Loss: 0.027407 Regul: 0.006044 Obj: 0.033451 (0.033364) Rank: 62 (62) Ttime: 5.7017 Vtime: 0.0213
+Step: 13400  Loss: 0.027348 Regul: 0.006053 Obj: 0.033401 (0.033364) Rank: 62 (62) Ttime: 5.6713 Vtime: 0.0213
+Step: 13500  Loss: 0.027378 Regul: 0.006053 Obj: 0.033430 (0.033364) Rank: 62 (62) Ttime: 5.6441 Vtime: 0.0216
+Step: 13600  Loss: 0.027388 Regul: 0.006056 Obj: 0.033445 (0.033364) Rank: 62 (62) Ttime: 5.6418 Vtime: 0.0209
+Step: 13700  Loss: 0.027382 Regul: 0.006056 Obj: 0.033439 (0.033364) Rank: 62 (62) Ttime: 5.5903 Vtime: 0.0210
+Step: 13800  Loss: 0.027424 Regul: 0.006052 Obj: 0.033476 (0.033364) Rank: 62 (62) Ttime: 5.6757 Vtime: 0.0210
+Step: 13900  Loss: 0.027397 Regul: 0.006065 Obj: 0.033462 (0.033364) Rank: 62 (62) Ttime: 5.5520 Vtime: 0.0211
+Step: 14000  Loss: 0.027394 Regul: 0.006058 Obj: 0.033452 (0.033364) Rank: 62 (62) Ttime: 5.6013 Vtime: 0.0212
+Step: 14100  Loss: 0.027451 Regul: 0.006053 Obj: 0.033504 (0.033364) Rank: 62 (62) Ttime: 5.6779 Vtime: 0.0213
+Step: 14200  Loss: 0.027390 Regul: 0.006059 Obj: 0.033449 (0.033364) Rank: 62 (62) Ttime: 5.6262 Vtime: 0.0210
+Step: 14300  Loss: 0.027404 Regul: 0.006058 Obj: 0.033462 (0.033364) Rank: 62 (62) Ttime: 5.5055 Vtime: 0.0212
+Step: 14400  Loss: 0.027435 Regul: 0.006063 Obj: 0.033498 (0.033364) Rank: 62 (62) Ttime: 5.5358 Vtime: 0.0210
+Step: 14500  Loss: 0.027454 Regul: 0.006078 Obj: 0.033532 (0.033364) Rank: 62 (62) Ttime: 5.5694 Vtime: 0.0211
+Step: 14600  Loss: 0.027387 Regul: 0.006088 Obj: 0.033475 (0.033364) Rank: 62 (62) Ttime: 5.6336 Vtime: 0.0208
+Step: 14700  Loss: 0.027412 Regul: 0.006080 Obj: 0.033492 (0.033364) Rank: 62 (62) Ttime: 5.5904 Vtime: 0.0204
+Step: 14800  Loss: 0.027384 Regul: 0.006092 Obj: 0.033477 (0.033364) Rank: 62 (62) Ttime: 5.5563 Vtime: 0.0210
+Step: 14900  Loss: 0.027394 Regul: 0.006096 Obj: 0.033490 (0.033364) Rank: 62 (62) Ttime: 5.6553 Vtime: 0.0210
+Step: 15000  Loss: 0.027416 Regul: 0.006092 Obj: 0.033508 (0.033364) Rank: 62 (62) Ttime: 5.5754 Vtime: 0.0209
+Step: 15100  Loss: 0.027482 Regul: 0.006093 Obj: 0.033575 (0.033364) Rank: 62 (62) Ttime: 5.6574 Vtime: 0.0206
+Step: 15200  Loss: 0.027469 Regul: 0.006093 Obj: 0.033562 (0.033364) Rank: 62 (62) Ttime: 5.5714 Vtime: 0.0208
+Step: 15300  Loss: 0.027457 Regul: 0.006103 Obj: 0.033560 (0.033364) Rank: 62 (62) Ttime: 5.5729 Vtime: 0.0211
+Step: 15400  Loss: 0.027481 Regul: 0.006092 Obj: 0.033574 (0.033364) Rank: 62 (62) Ttime: 5.6778 Vtime: 0.0213
+Step: 15500  Loss: 0.027485 Regul: 0.006098 Obj: 0.033583 (0.033364) Rank: 62 (62) Ttime: 5.5875 Vtime: 0.0210
+Step: 15600  Loss: 0.027452 Regul: 0.006103 Obj: 0.033555 (0.033364) Rank: 63 (62) Ttime: 5.5731 Vtime: 0.0218
+Step: 15700  Loss: 0.027478 Regul: 0.006105 Obj: 0.033583 (0.033364) Rank: 63 (62) Ttime: 5.5905 Vtime: 0.0213
+Step: 15800  Loss: 0.027424 Regul: 0.006106 Obj: 0.033530 (0.033364) Rank: 63 (62) Ttime: 5.5454 Vtime: 0.0209
+Step: 15900  Loss: 0.027448 Regul: 0.006118 Obj: 0.033566 (0.033364) Rank: 63 (62) Ttime: 5.6062 Vtime: 0.0209
+Step: 16000  Loss: 0.027343 Regul: 0.006111 Obj: 0.033454 (0.033364) Rank: 63 (62) Ttime: 5.6043 Vtime: 0.0212
+Step: 16100  Loss: 0.027446 Regul: 0.006100 Obj: 0.033547 (0.033364) Rank: 63 (62) Ttime: 5.6618 Vtime: 0.0204
+Step: 16200  Loss: 0.027396 Regul: 0.006096 Obj: 0.033492 (0.033364) Rank: 63 (62) Ttime: 5.6500 Vtime: 0.0209
+Step: 16300  Loss: 0.027458 Regul: 0.006096 Obj: 0.033553 (0.033364) Rank: 63 (62) Ttime: 5.5794 Vtime: 0.0210
+Step: 16400  Loss: 0.027345 Regul: 0.006101 Obj: 0.033446 (0.033364) Rank: 63 (62) Ttime: 5.5908 Vtime: 0.0206
+Step: 16500  Loss: 0.027337 Regul: 0.006108 Obj: 0.033445 (0.033364) Rank: 63 (62) Ttime: 5.5789 Vtime: 0.0211
+Step: 16600  Loss: 0.027402 Regul: 0.006110 Obj: 0.033512 (0.033364) Rank: 63 (62) Ttime: 5.5289 Vtime: 0.0211
+Step: 16700  Loss: 0.027425 Regul: 0.006104 Obj: 0.033530 (0.033364) Rank: 63 (62) Ttime: 5.5054 Vtime: 0.0212
+Step: 16800  Loss: 0.027480 Regul: 0.006111 Obj: 0.033591 (0.033364) Rank: 63 (62) Ttime: 5.5862 Vtime: 0.0208
+Step: 16900  Loss: 0.027413 Regul: 0.006115 Obj: 0.033528 (0.033364) Rank: 63 (62) Ttime: 5.5584 Vtime: 0.0217
+Step: 17000  Loss: 0.027386 Regul: 0.006128 Obj: 0.033514 (0.033364) Rank: 63 (62) Ttime: 5.6403 Vtime: 0.0206
+Step: 17100  Loss: 0.027299 Regul: 0.006142 Obj: 0.033442 (0.033364) Rank: 63 (62) Ttime: 5.6892 Vtime: 0.0210
+Step: 17200  Loss: 0.027402 Regul: 0.006143 Obj: 0.033545 (0.033364) Rank: 62 (62) Ttime: 5.6720 Vtime: 0.0216
+Step: 17300  Loss: 0.027371 Regul: 0.006142 Obj: 0.033512 (0.033364) Rank: 62 (62) Ttime: 5.5984 Vtime: 0.0216
+Step: 17400  Loss: 0.027355 Regul: 0.006149 Obj: 0.033504 (0.033364) Rank: 63 (62) Ttime: 5.5935 Vtime: 0.0216
+Step: 17500  Loss: 0.027353 Regul: 0.006139 Obj: 0.033492 (0.033364) Rank: 63 (62) Ttime: 5.5960 Vtime: 0.0211
+Step: 17600  Loss: 0.027363 Regul: 0.006139 Obj: 0.033502 (0.033364) Rank: 63 (62) Ttime: 5.5620 Vtime: 0.0212
+Step: 17700  Loss: 0.027320 Regul: 0.006143 Obj: 0.033463 (0.033364) Rank: 63 (62) Ttime: 5.6144 Vtime: 0.0217
+Step: 17800  Loss: 0.027341 Regul: 0.006138 Obj: 0.033479 (0.033364) Rank: 63 (62) Ttime: 5.5434 Vtime: 0.0209
+Step: 17900  Loss: 0.027268 Regul: 0.006139 Obj: 0.033407 (0.033364) Rank: 63 (62) Ttime: 5.5123 Vtime: 0.0208
+Step: 18000  Loss: 0.027277 Regul: 0.006142 Obj: 0.033419 (0.033364) Rank: 63 (62) Ttime: 5.5921 Vtime: 0.0211
+Step: 18100  Loss: 0.027240 Regul: 0.006134 Obj: 0.033374 (0.033364) Rank: 63 (62) Ttime: 5.6259 Vtime: 0.0216
+Step: 18200  Loss: 0.027230 Regul: 0.006133 Obj: 0.033364 (0.033364) Rank: 63 (62) Ttime: 5.4717 Vtime: 0.0213
+Best: 18300  Loss: 0.027194 Regul: 0.006139 Obj: 0.033333 (0.033333) Rank: 63 (63) Ttime: 5.5173 Vtime: 0.0211
+Stat: Dim/MaxDim [63/80] AUC: 0.992227 (0.992227) FPR95: 2.63 (2.63) [saved]
+Step: 18400  Loss: 0.027224 Regul: 0.006145 Obj: 0.033369 (0.033333) Rank: 63 (63) Ttime: 5.5722 Vtime: 0.0212
+Step: 18500  Loss: 0.027305 Regul: 0.006152 Obj: 0.033456 (0.033333) Rank: 63 (63) Ttime: 5.5048 Vtime: 0.0214
+Step: 18600  Loss: 0.027258 Regul: 0.006157 Obj: 0.033414 (0.033333) Rank: 63 (63) Ttime: 5.5205 Vtime: 0.0210
+Step: 18700  Loss: 0.027312 Regul: 0.006157 Obj: 0.033469 (0.033333) Rank: 63 (63) Ttime: 5.4327 Vtime: 0.0205
+Step: 18800  Loss: 0.027245 Regul: 0.006155 Obj: 0.033399 (0.033333) Rank: 63 (63) Ttime: 5.5061 Vtime: 0.0211
+Step: 18900  Loss: 0.027244 Regul: 0.006159 Obj: 0.033403 (0.033333) Rank: 63 (63) Ttime: 5.4575 Vtime: 0.0207
+Step: 19000  Loss: 0.027270 Regul: 0.006161 Obj: 0.033432 (0.033333) Rank: 63 (63) Ttime: 5.5143 Vtime: 0.0206
+Step: 19100  Loss: 0.027278 Regul: 0.006162 Obj: 0.033440 (0.033333) Rank: 63 (63) Ttime: 5.4956 Vtime: 0.0207
+Step: 19200  Loss: 0.027230 Regul: 0.006169 Obj: 0.033399 (0.033333) Rank: 63 (63) Ttime: 5.5360 Vtime: 0.0209
+Step: 19300  Loss: 0.027204 Regul: 0.006173 Obj: 0.033377 (0.033333) Rank: 63 (63) Ttime: 5.5313 Vtime: 0.0209
+Step: 19400  Loss: 0.027202 Regul: 0.006173 Obj: 0.033375 (0.033333) Rank: 63 (63) Ttime: 5.5847 Vtime: 0.0210
+Best: 19500  Loss: 0.027137 Regul: 0.006171 Obj: 0.033308 (0.033308) Rank: 63 (63) Ttime: 5.5492 Vtime: 0.0208
+Stat: Dim/MaxDim [63/80] AUC: 0.992230 (0.992230) FPR95: 2.63 (2.63) [saved]
+Best: 19600  Loss: 0.027132 Regul: 0.006170 Obj: 0.033302 (0.033302) Rank: 62 (62) Ttime: 5.5803 Vtime: 0.0213
+Stat: Dim/MaxDim [62/80] AUC: 0.992226 (0.992230) FPR95: 2.63 (2.63)
+Step: 19700  Loss: 0.027181 Regul: 0.006169 Obj: 0.033350 (0.033302) Rank: 63 (62) Ttime: 5.5136 Vtime: 0.0218
+Step: 19800  Loss: 0.027151 Regul: 0.006173 Obj: 0.033323 (0.033302) Rank: 63 (62) Ttime: 5.5651 Vtime: 0.0210
+Step: 19900  Loss: 0.027151 Regul: 0.006174 Obj: 0.033325 (0.033302) Rank: 63 (62) Ttime: 5.6222 Vtime: 0.0214
+Step: 20000  Loss: 0.027234 Regul: 0.006176 Obj: 0.033410 (0.033302) Rank: 63 (62) Ttime: 5.5921 Vtime: 0.0207
+Step: 20100  Loss: 0.027175 Regul: 0.006182 Obj: 0.033357 (0.033302) Rank: 63 (62) Ttime: 5.5960 Vtime: 0.0208
+Step: 20200  Loss: 0.027148 Regul: 0.006171 Obj: 0.033319 (0.033302) Rank: 63 (62) Ttime: 5.5326 Vtime: 0.0214
+Step: 20300  Loss: 0.027138 Regul: 0.006178 Obj: 0.033315 (0.033302) Rank: 63 (62) Ttime: 5.6563 Vtime: 0.0212
+Step: 20400  Loss: 0.027123 Regul: 0.006179 Obj: 0.033302 (0.033302) Rank: 63 (62) Ttime: 5.6894 Vtime: 0.0218
+Best: 20500  Loss: 0.027098 Regul: 0.006188 Obj: 0.033286 (0.033286) Rank: 63 (63) Ttime: 5.6126 Vtime: 0.0214
+Stat: Dim/MaxDim [63/80] AUC: 0.992263 (0.992263) FPR95: 2.61 (2.61) [saved]
+Step: 20600  Loss: 0.027106 Regul: 0.006192 Obj: 0.033298 (0.033286) Rank: 63 (63) Ttime: 5.6172 Vtime: 0.0214
+Step: 20700  Loss: 0.027119 Regul: 0.006186 Obj: 0.033306 (0.033286) Rank: 63 (63) Ttime: 5.5969 Vtime: 0.0212
+Step: 20800  Loss: 0.027210 Regul: 0.006179 Obj: 0.033388 (0.033286) Rank: 63 (63) Ttime: 5.5766 Vtime: 0.0207
+Step: 20900  Loss: 0.027164 Regul: 0.006188 Obj: 0.033352 (0.033286) Rank: 63 (63) Ttime: 5.6400 Vtime: 0.0207
+Step: 21000  Loss: 0.027182 Regul: 0.006187 Obj: 0.033370 (0.033286) Rank: 63 (63) Ttime: 5.5562 Vtime: 0.0209
+Step: 21100  Loss: 0.027111 Regul: 0.006191 Obj: 0.033302 (0.033286) Rank: 63 (63) Ttime: 5.5520 Vtime: 0.0208
+Step: 21200  Loss: 0.027100 Regul: 0.006194 Obj: 0.033293 (0.033286) Rank: 63 (63) Ttime: 5.4899 Vtime: 0.0212
+Step: 21300  Loss: 0.027138 Regul: 0.006190 Obj: 0.033328 (0.033286) Rank: 63 (63) Ttime: 5.5487 Vtime: 0.0206
+Step: 21400  Loss: 0.027113 Regul: 0.006195 Obj: 0.033308 (0.033286) Rank: 63 (63) Ttime: 5.5051 Vtime: 0.0210
+Step: 21500  Loss: 0.027146 Regul: 0.006199 Obj: 0.033345 (0.033286) Rank: 63 (63) Ttime: 5.4532 Vtime: 0.0209
+Step: 21600  Loss: 0.027127 Regul: 0.006198 Obj: 0.033325 (0.033286) Rank: 63 (63) Ttime: 5.5208 Vtime: 0.0206
+Step: 21700  Loss: 0.027151 Regul: 0.006195 Obj: 0.033345 (0.033286) Rank: 63 (63) Ttime: 5.6117 Vtime: 0.0212
+Step: 21800  Loss: 0.027134 Regul: 0.006198 Obj: 0.033331 (0.033286) Rank: 63 (63) Ttime: 5.5166 Vtime: 0.0209
+Step: 21900  Loss: 0.027173 Regul: 0.006192 Obj: 0.033365 (0.033286) Rank: 63 (63) Ttime: 5.6094 Vtime: 0.0208
+Step: 22000  Loss: 0.027172 Regul: 0.006205 Obj: 0.033377 (0.033286) Rank: 63 (63) Ttime: 5.6307 Vtime: 0.0209
+Step: 22100  Loss: 0.027140 Regul: 0.006204 Obj: 0.033344 (0.033286) Rank: 63 (63) Ttime: 5.5426 Vtime: 0.0209
+Step: 22200  Loss: 0.027203 Regul: 0.006202 Obj: 0.033404 (0.033286) Rank: 63 (63) Ttime: 5.6358 Vtime: 0.0218
+Step: 22300  Loss: 0.027206 Regul: 0.006211 Obj: 0.033417 (0.033286) Rank: 63 (63) Ttime: 5.6233 Vtime: 0.0210
+Step: 22400  Loss: 0.027154 Regul: 0.006219 Obj: 0.033373 (0.033286) Rank: 63 (63) Ttime: 5.5722 Vtime: 0.0210
+Step: 22500  Loss: 0.027112 Regul: 0.006222 Obj: 0.033334 (0.033286) Rank: 63 (63) Ttime: 5.5798 Vtime: 0.0213
+Step: 22600  Loss: 0.027117 Regul: 0.006220 Obj: 0.033337 (0.033286) Rank: 63 (63) Ttime: 5.5767 Vtime: 0.0213
+Step: 22700  Loss: 0.027175 Regul: 0.006222 Obj: 0.033397 (0.033286) Rank: 63 (63) Ttime: 5.5343 Vtime: 0.0210
+Step: 22800  Loss: 0.027178 Regul: 0.006214 Obj: 0.033392 (0.033286) Rank: 63 (63) Ttime: 5.6390 Vtime: 0.0213
+Step: 22900  Loss: 0.027149 Regul: 0.006224 Obj: 0.033373 (0.033286) Rank: 63 (63) Ttime: 5.6930 Vtime: 0.0209
+Step: 23000  Loss: 0.027095 Regul: 0.006226 Obj: 0.033320 (0.033286) Rank: 63 (63) Ttime: 5.6611 Vtime: 0.0208
+Step: 23100  Loss: 0.027164 Regul: 0.006223 Obj: 0.033387 (0.033286) Rank: 63 (63) Ttime: 5.5328 Vtime: 0.0212
+Step: 23200  Loss: 0.027134 Regul: 0.006223 Obj: 0.033357 (0.033286) Rank: 63 (63) Ttime: 5.5337 Vtime: 0.0213
+Step: 23300  Loss: 0.027132 Regul: 0.006225 Obj: 0.033358 (0.033286) Rank: 63 (63) Ttime: 5.5597 Vtime: 0.0205
+Step: 23400  Loss: 0.027159 Regul: 0.006234 Obj: 0.033393 (0.033286) Rank: 63 (63) Ttime: 5.6765 Vtime: 0.0212
+Step: 23500  Loss: 0.027223 Regul: 0.006239 Obj: 0.033462 (0.033286) Rank: 63 (63) Ttime: 5.5461 Vtime: 0.0206
+Step: 23600  Loss: 0.027220 Regul: 0.006237 Obj: 0.033456 (0.033286) Rank: 63 (63) Ttime: 5.5051 Vtime: 0.0213
+Step: 23700  Loss: 0.027197 Regul: 0.006236 Obj: 0.033433 (0.033286) Rank: 63 (63) Ttime: 5.6031 Vtime: 0.0211
+Step: 23800  Loss: 0.027196 Regul: 0.006235 Obj: 0.033430 (0.033286) Rank: 63 (63) Ttime: 5.5401 Vtime: 0.0213
+Step: 23900  Loss: 0.027173 Regul: 0.006237 Obj: 0.033410 (0.033286) Rank: 63 (63) Ttime: 5.5843 Vtime: 0.0211
+Step: 24000  Loss: 0.027155 Regul: 0.006240 Obj: 0.033395 (0.033286) Rank: 63 (63) Ttime: 5.5035 Vtime: 0.0212
+Step: 24100  Loss: 0.027220 Regul: 0.006242 Obj: 0.033463 (0.033286) Rank: 63 (63) Ttime: 5.5384 Vtime: 0.0210
+Step: 24200  Loss: 0.027200 Regul: 0.006237 Obj: 0.033437 (0.033286) Rank: 63 (63) Ttime: 5.4852 Vtime: 0.0208
+Step: 24300  Loss: 0.027153 Regul: 0.006241 Obj: 0.033394 (0.033286) Rank: 63 (63) Ttime: 5.5758 Vtime: 0.0207
+Step: 24400  Loss: 0.027188 Regul: 0.006253 Obj: 0.033441 (0.033286) Rank: 63 (63) Ttime: 5.4728 Vtime: 0.0209
+Step: 24500  Loss: 0.027142 Regul: 0.006254 Obj: 0.033396 (0.033286) Rank: 63 (63) Ttime: 5.5965 Vtime: 0.0215
+Step: 24600  Loss: 0.027195 Regul: 0.006247 Obj: 0.033441 (0.033286) Rank: 63 (63) Ttime: 5.5941 Vtime: 0.0210
+Step: 24700  Loss: 0.027193 Regul: 0.006253 Obj: 0.033446 (0.033286) Rank: 63 (63) Ttime: 5.5825 Vtime: 0.0212
+Step: 24800  Loss: 0.027204 Regul: 0.006256 Obj: 0.033460 (0.033286) Rank: 63 (63) Ttime: 5.6118 Vtime: 0.0213
+Step: 24900  Loss: 0.027142 Regul: 0.006261 Obj: 0.033403 (0.033286) Rank: 63 (63) Ttime: 5.5065 Vtime: 0.0206
+Step: 25000  Loss: 0.027119 Regul: 0.006265 Obj: 0.033384 (0.033286) Rank: 63 (63) Ttime: 5.6379 Vtime: 0.0214
+Step: 25100  Loss: 0.027133 Regul: 0.006265 Obj: 0.033398 (0.033286) Rank: 63 (63) Ttime: 5.5152 Vtime: 0.0211
+Step: 25200  Loss: 0.027182 Regul: 0.006268 Obj: 0.033450 (0.033286) Rank: 63 (63) Ttime: 5.5460 Vtime: 0.0216
+Step: 25300  Loss: 0.027188 Regul: 0.006264 Obj: 0.033452 (0.033286) Rank: 63 (63) Ttime: 5.5522 Vtime: 0.0213
+Step: 25400  Loss: 0.027219 Regul: 0.006260 Obj: 0.033479 (0.033286) Rank: 63 (63) Ttime: 5.4950 Vtime: 0.0208
+Step: 25500  Loss: 0.027253 Regul: 0.006256 Obj: 0.033509 (0.033286) Rank: 63 (63) Ttime: 5.5012 Vtime: 0.0211
+Step: 25600  Loss: 0.027196 Regul: 0.006261 Obj: 0.033457 (0.033286) Rank: 63 (63) Ttime: 5.4428 Vtime: 0.0214
+Step: 25700  Loss: 0.027175 Regul: 0.006259 Obj: 0.033434 (0.033286) Rank: 63 (63) Ttime: 5.4787 Vtime: 0.0204
+Step: 25800  Loss: 0.027189 Regul: 0.006256 Obj: 0.033446 (0.033286) Rank: 63 (63) Ttime: 5.4372 Vtime: 0.0210
+Step: 25900  Loss: 0.027283 Regul: 0.006258 Obj: 0.033541 (0.033286) Rank: 63 (63) Ttime: 5.4510 Vtime: 0.0212
+Step: 26000  Loss: 0.027279 Regul: 0.006260 Obj: 0.033538 (0.033286) Rank: 63 (63) Ttime: 5.4536 Vtime: 0.0211
+Step: 26100  Loss: 0.027312 Regul: 0.006260 Obj: 0.033572 (0.033286) Rank: 63 (63) Ttime: 5.4978 Vtime: 0.0214
+Step: 26200  Loss: 0.027210 Regul: 0.006266 Obj: 0.033476 (0.033286) Rank: 63 (63) Ttime: 5.4626 Vtime: 0.0210
+Step: 26300  Loss: 0.027274 Regul: 0.006256 Obj: 0.033530 (0.033286) Rank: 63 (63) Ttime: 5.3695 Vtime: 0.0212
+Step: 26400  Loss: 0.027182 Regul: 0.006267 Obj: 0.033449 (0.033286) Rank: 63 (63) Ttime: 5.4986 Vtime: 0.0208
+Step: 26500  Loss: 0.027137 Regul: 0.006268 Obj: 0.033406 (0.033286) Rank: 63 (63) Ttime: 5.5031 Vtime: 0.0215
+Step: 26600  Loss: 0.027037 Regul: 0.006269 Obj: 0.033306 (0.033286) Rank: 63 (63) Ttime: 5.4417 Vtime: 0.0214
+Step: 26700  Loss: 0.027082 Regul: 0.006273 Obj: 0.033355 (0.033286) Rank: 63 (63) Ttime: 5.5312 Vtime: 0.0206
+Step: 26800  Loss: 0.027146 Regul: 0.006277 Obj: 0.033423 (0.033286) Rank: 63 (63) Ttime: 5.4807 Vtime: 0.0207
+Step: 26900  Loss: 0.027026 Regul: 0.006280 Obj: 0.033305 (0.033286) Rank: 63 (63) Ttime: 5.4254 Vtime: 0.0209
+Best: 27000  Loss: 0.026999 Regul: 0.006283 Obj: 0.033283 (0.033283) Rank: 63 (63) Ttime: 5.4167 Vtime: 0.0208
+Stat: Dim/MaxDim [63/80] AUC: 0.992330 (0.992330) FPR95: 2.56 (2.56) [saved]
+Best: 27100  Loss: 0.027000 Regul: 0.006278 Obj: 0.033278 (0.033278) Rank: 63 (63) Ttime: 5.5210 Vtime: 0.0221
+Stat: Dim/MaxDim [63/80] AUC: 0.992323 (0.992330) FPR95: 2.57 (2.56)
+Step: 27200  Loss: 0.027054 Regul: 0.006273 Obj: 0.033327 (0.033278) Rank: 63 (63) Ttime: 5.3957 Vtime: 0.0213
+Step: 27300  Loss: 0.027051 Regul: 0.006278 Obj: 0.033329 (0.033278) Rank: 63 (63) Ttime: 5.4863 Vtime: 0.0213
+Step: 27400  Loss: 0.027086 Regul: 0.006276 Obj: 0.033362 (0.033278) Rank: 63 (63) Ttime: 5.4523 Vtime: 0.0206
+Step: 27500  Loss: 0.027119 Regul: 0.006266 Obj: 0.033385 (0.033278) Rank: 63 (63) Ttime: 5.4588 Vtime: 0.0211
+Step: 27600  Loss: 0.027179 Regul: 0.006271 Obj: 0.033450 (0.033278) Rank: 63 (63) Ttime: 5.4637 Vtime: 0.0210
+Step: 27700  Loss: 0.027124 Regul: 0.006276 Obj: 0.033400 (0.033278) Rank: 63 (63) Ttime: 5.4850 Vtime: 0.0209
+Step: 27800  Loss: 0.027145 Regul: 0.006280 Obj: 0.033426 (0.033278) Rank: 63 (63) Ttime: 5.5207 Vtime: 0.0208
+Step: 27900  Loss: 0.027096 Regul: 0.006279 Obj: 0.033374 (0.033278) Rank: 63 (63) Ttime: 5.4544 Vtime: 0.0206
+Step: 28000  Loss: 0.027102 Regul: 0.006281 Obj: 0.033383 (0.033278) Rank: 63 (63) Ttime: 5.3851 Vtime: 0.0208
+Step: 28100  Loss: 0.027149 Regul: 0.006286 Obj: 0.033435 (0.033278) Rank: 63 (63) Ttime: 5.5072 Vtime: 0.0209
+Step: 28200  Loss: 0.027129 Regul: 0.006279 Obj: 0.033408 (0.033278) Rank: 63 (63) Ttime: 5.4110 Vtime: 0.0214
+Step: 28300  Loss: 0.027118 Regul: 0.006276 Obj: 0.033394 (0.033278) Rank: 63 (63) Ttime: 5.4484 Vtime: 0.0210
+Step: 28400  Loss: 0.027094 Regul: 0.006275 Obj: 0.033369 (0.033278) Rank: 63 (63) Ttime: 5.3801 Vtime: 0.0214
+Step: 28500  Loss: 0.027081 Regul: 0.006276 Obj: 0.033357 (0.033278) Rank: 63 (63) Ttime: 5.4937 Vtime: 0.0208
+Step: 28600  Loss: 0.027118 Regul: 0.006274 Obj: 0.033393 (0.033278) Rank: 63 (63) Ttime: 5.2522 Vtime: 0.0211
+Step: 28700  Loss: 0.027044 Regul: 0.006284 Obj: 0.033328 (0.033278) Rank: 63 (63) Ttime: 5.4062 Vtime: 0.0208
+Step: 28800  Loss: 0.027058 Regul: 0.006284 Obj: 0.033342 (0.033278) Rank: 63 (63) Ttime: 5.4575 Vtime: 0.0207
+Step: 28900  Loss: 0.027030 Regul: 0.006291 Obj: 0.033322 (0.033278) Rank: 63 (63) Ttime: 5.4201 Vtime: 0.0214
+Step: 29000  Loss: 0.027052 Regul: 0.006288 Obj: 0.033340 (0.033278) Rank: 63 (63) Ttime: 5.4799 Vtime: 0.0208
+Step: 29100  Loss: 0.027059 Regul: 0.006291 Obj: 0.033350 (0.033278) Rank: 63 (63) Ttime: 5.4002 Vtime: 0.0206
+Step: 29200  Loss: 0.027075 Regul: 0.006288 Obj: 0.033363 (0.033278) Rank: 63 (63) Ttime: 5.4624 Vtime: 0.0207
+Step: 29300  Loss: 0.027096 Regul: 0.006280 Obj: 0.033376 (0.033278) Rank: 63 (63) Ttime: 5.4806 Vtime: 0.0211
+Step: 29400  Loss: 0.027030 Regul: 0.006281 Obj: 0.033312 (0.033278) Rank: 63 (63) Ttime: 5.4828 Vtime: 0.0213
+Step: 29500  Loss: 0.027100 Regul: 0.006278 Obj: 0.033378 (0.033278) Rank: 63 (63) Ttime: 5.4091 Vtime: 0.0206
+Step: 29600  Loss: 0.027171 Regul: 0.006275 Obj: 0.033446 (0.033278) Rank: 63 (63) Ttime: 5.3695 Vtime: 0.0209
+Step: 29700  Loss: 0.027170 Regul: 0.006277 Obj: 0.033447 (0.033278) Rank: 63 (63) Ttime: 5.3673 Vtime: 0.0215
+Step: 29800  Loss: 0.027109 Regul: 0.006280 Obj: 0.033388 (0.033278) Rank: 63 (63) Ttime: 5.5454 Vtime: 0.0213
+Step: 29900  Loss: 0.027110 Regul: 0.006278 Obj: 0.033388 (0.033278) Rank: 63 (63) Ttime: 5.4560 Vtime: 0.0213
+Step: 30000  Loss: 0.027059 Regul: 0.006276 Obj: 0.033335 (0.033278) Rank: 63 (63) Ttime: 5.5178 Vtime: 0.0206
+Step: 30100  Loss: 0.027060 Regul: 0.006286 Obj: 0.033346 (0.033278) Rank: 63 (63) Ttime: 5.3097 Vtime: 0.0217
+Step: 30200  Loss: 0.027166 Regul: 0.006292 Obj: 0.033458 (0.033278) Rank: 63 (63) Ttime: 5.5415 Vtime: 0.0208
+Step: 30300  Loss: 0.027125 Regul: 0.006292 Obj: 0.033417 (0.033278) Rank: 63 (63) Ttime: 5.4657 Vtime: 0.0207
+Step: 30400  Loss: 0.027104 Regul: 0.006289 Obj: 0.033393 (0.033278) Rank: 63 (63) Ttime: 5.5014 Vtime: 0.0210
+Step: 30500  Loss: 0.027083 Regul: 0.006285 Obj: 0.033368 (0.033278) Rank: 63 (63) Ttime: 5.5202 Vtime: 0.0214
+Step: 30600  Loss: 0.027094 Regul: 0.006295 Obj: 0.033389 (0.033278) Rank: 63 (63) Ttime: 5.4889 Vtime: 0.0213
+Step: 30700  Loss: 0.027052 Regul: 0.006294 Obj: 0.033346 (0.033278) Rank: 63 (63) Ttime: 5.4170 Vtime: 0.0213
+Step: 30800  Loss: 0.026997 Regul: 0.006295 Obj: 0.033292 (0.033278) Rank: 63 (63) Ttime: 5.4823 Vtime: 0.0214
+Step: 30900  Loss: 0.027026 Regul: 0.006290 Obj: 0.033315 (0.033278) Rank: 63 (63) Ttime: 5.4836 Vtime: 0.0214
+Step: 31000  Loss: 0.027061 Regul: 0.006290 Obj: 0.033351 (0.033278) Rank: 63 (63) Ttime: 5.6207 Vtime: 0.0214
+Step: 31100  Loss: 0.027065 Regul: 0.006296 Obj: 0.033361 (0.033278) Rank: 63 (63) Ttime: 5.5900 Vtime: 0.0212
+Step: 31200  Loss: 0.027053 Regul: 0.006298 Obj: 0.033351 (0.033278) Rank: 63 (63) Ttime: 5.5060 Vtime: 0.0213
+Step: 31300  Loss: 0.027009 Regul: 0.006295 Obj: 0.033304 (0.033278) Rank: 63 (63) Ttime: 5.5062 Vtime: 0.0207
+Step: 31400  Loss: 0.027046 Regul: 0.006295 Obj: 0.033341 (0.033278) Rank: 63 (63) Ttime: 5.4914 Vtime: 0.0209
+Step: 31500  Loss: 0.027052 Regul: 0.006289 Obj: 0.033341 (0.033278) Rank: 63 (63) Ttime: 5.6164 Vtime: 0.0210
+Step: 31600  Loss: 0.027101 Regul: 0.006291 Obj: 0.033392 (0.033278) Rank: 63 (63) Ttime: 5.5008 Vtime: 0.0209
+Step: 31700  Loss: 0.027105 Regul: 0.006296 Obj: 0.033401 (0.033278) Rank: 63 (63) Ttime: 5.5964 Vtime: 0.0213
+Step: 31800  Loss: 0.027063 Regul: 0.006301 Obj: 0.033364 (0.033278) Rank: 63 (63) Ttime: 5.6901 Vtime: 0.0211
+Step: 31900  Loss: 0.027091 Regul: 0.006301 Obj: 0.033392 (0.033278) Rank: 63 (63) Ttime: 5.6390 Vtime: 0.0208
+Step: 32000  Loss: 0.027121 Regul: 0.006307 Obj: 0.033428 (0.033278) Rank: 63 (63) Ttime: 5.5158 Vtime: 0.0209
+Step: 32100  Loss: 0.027106 Regul: 0.006310 Obj: 0.033415 (0.033278) Rank: 63 (63) Ttime: 5.5444 Vtime: 0.0210
+Step: 32200  Loss: 0.027074 Regul: 0.006310 Obj: 0.033384 (0.033278) Rank: 63 (63) Ttime: 5.5728 Vtime: 0.0210
+Step: 32300  Loss: 0.027089 Regul: 0.006311 Obj: 0.033400 (0.033278) Rank: 63 (63) Ttime: 5.5364 Vtime: 0.0212
+Step: 32400  Loss: 0.027107 Regul: 0.006310 Obj: 0.033417 (0.033278) Rank: 63 (63) Ttime: 5.6101 Vtime: 0.0208
+Step: 32500  Loss: 0.027109 Regul: 0.006309 Obj: 0.033417 (0.033278) Rank: 63 (63) Ttime: 5.4917 Vtime: 0.0217
+Step: 32600  Loss: 0.027100 Regul: 0.006312 Obj: 0.033412 (0.033278) Rank: 63 (63) Ttime: 5.5137 Vtime: 0.0209
+Step: 32700  Loss: 0.027098 Regul: 0.006313 Obj: 0.033411 (0.033278) Rank: 63 (63) Ttime: 5.4625 Vtime: 0.0213
+Step: 32800  Loss: 0.027055 Regul: 0.006315 Obj: 0.033370 (0.033278) Rank: 63 (63) Ttime: 5.4966 Vtime: 0.0214
+Step: 32900  Loss: 0.027044 Regul: 0.006315 Obj: 0.033359 (0.033278) Rank: 63 (63) Ttime: 5.5288 Vtime: 0.0214
+Step: 33000  Loss: 0.027062 Regul: 0.006318 Obj: 0.033380 (0.033278) Rank: 63 (63) Ttime: 5.4609 Vtime: 0.0211
+Step: 33100  Loss: 0.027081 Regul: 0.006318 Obj: 0.033398 (0.033278) Rank: 63 (63) Ttime: 5.5050 Vtime: 0.0222
+Step: 33200  Loss: 0.027084 Regul: 0.006326 Obj: 0.033409 (0.033278) Rank: 63 (63) Ttime: 5.4672 Vtime: 0.0209
+Step: 33300  Loss: 0.027114 Regul: 0.006331 Obj: 0.033445 (0.033278) Rank: 63 (63) Ttime: 5.5204 Vtime: 0.0210
+Step: 33400  Loss: 0.027063 Regul: 0.006331 Obj: 0.033395 (0.033278) Rank: 63 (63) Ttime: 5.4228 Vtime: 0.0227
+Step: 33500  Loss: 0.027065 Regul: 0.006330 Obj: 0.033395 (0.033278) Rank: 63 (63) Ttime: 5.5060 Vtime: 0.0208
+Step: 33600  Loss: 0.027081 Regul: 0.006329 Obj: 0.033410 (0.033278) Rank: 63 (63) Ttime: 5.5619 Vtime: 0.0212
+Step: 33700  Loss: 0.027022 Regul: 0.006330 Obj: 0.033352 (0.033278) Rank: 63 (63) Ttime: 5.7467 Vtime: 0.0211
+Step: 33800  Loss: 0.027028 Regul: 0.006323 Obj: 0.033351 (0.033278) Rank: 63 (63) Ttime: 5.4770 Vtime: 0.0217
+Step: 33900  Loss: 0.027014 Regul: 0.006328 Obj: 0.033342 (0.033278) Rank: 63 (63) Ttime: 5.4510 Vtime: 0.0216
+Step: 34000  Loss: 0.027058 Regul: 0.006327 Obj: 0.033385 (0.033278) Rank: 63 (63) Ttime: 5.4919 Vtime: 0.0209
+Step: 34100  Loss: 0.027053 Regul: 0.006328 Obj: 0.033381 (0.033278) Rank: 63 (63) Ttime: 5.5564 Vtime: 0.0210
+Step: 34200  Loss: 0.027013 Regul: 0.006329 Obj: 0.033343 (0.033278) Rank: 63 (63) Ttime: 5.4802 Vtime: 0.0215
+Best: 34300  Loss: 0.026925 Regul: 0.006332 Obj: 0.033257 (0.033257) Rank: 63 (63) Ttime: 5.5907 Vtime: 0.0209
+Stat: Dim/MaxDim [63/80] AUC: 0.992388 (0.992330) FPR95: 2.59 (2.56)
+Step: 34400  Loss: 0.026969 Regul: 0.006339 Obj: 0.033308 (0.033257) Rank: 63 (63) Ttime: 5.5193 Vtime: 0.0209
+Step: 34500  Loss: 0.027023 Regul: 0.006338 Obj: 0.033361 (0.033257) Rank: 63 (63) Ttime: 5.4868 Vtime: 0.0205
+Step: 34600  Loss: 0.026981 Regul: 0.006336 Obj: 0.033317 (0.033257) Rank: 63 (63) Ttime: 5.5849 Vtime: 0.0209
+Step: 34700  Loss: 0.027109 Regul: 0.006335 Obj: 0.033444 (0.033257) Rank: 63 (63) Ttime: 5.5080 Vtime: 0.0209
+Step: 34800  Loss: 0.027075 Regul: 0.006335 Obj: 0.033410 (0.033257) Rank: 63 (63) Ttime: 5.5204 Vtime: 0.0212
+Step: 34900  Loss: 0.027054 Regul: 0.006331 Obj: 0.033385 (0.033257) Rank: 63 (63) Ttime: 5.5982 Vtime: 0.0211
+Step: 35000  Loss: 0.027014 Regul: 0.006332 Obj: 0.033346 (0.033257) Rank: 63 (63) Ttime: 5.5459 Vtime: 0.0211
+Step: 35100  Loss: 0.026974 Regul: 0.006333 Obj: 0.033307 (0.033257) Rank: 63 (63) Ttime: 5.5063 Vtime: 0.0212
+Step: 35200  Loss: 0.026958 Regul: 0.006334 Obj: 0.033292 (0.033257) Rank: 63 (63) Ttime: 5.4685 Vtime: 0.0206
+Step: 35300  Loss: 0.026964 Regul: 0.006333 Obj: 0.033297 (0.033257) Rank: 63 (63) Ttime: 5.5044 Vtime: 0.0213
+Step: 35400  Loss: 0.026950 Regul: 0.006334 Obj: 0.033284 (0.033257) Rank: 63 (63) Ttime: 5.5333 Vtime: 0.0207
+Step: 35500  Loss: 0.026990 Regul: 0.006339 Obj: 0.033329 (0.033257) Rank: 63 (63) Ttime: 5.5384 Vtime: 0.0208
+Step: 35600  Loss: 0.027042 Regul: 0.006345 Obj: 0.033388 (0.033257) Rank: 63 (63) Ttime: 5.5150 Vtime: 0.0213
+Step: 35700  Loss: 0.026962 Regul: 0.006346 Obj: 0.033307 (0.033257) Rank: 63 (63) Ttime: 5.4580 Vtime: 0.0210
+Step: 35800  Loss: 0.027046 Regul: 0.006340 Obj: 0.033386 (0.033257) Rank: 63 (63) Ttime: 5.5430 Vtime: 0.0213
+Step: 35900  Loss: 0.027128 Regul: 0.006336 Obj: 0.033464 (0.033257) Rank: 63 (63) Ttime: 5.4442 Vtime: 0.0211
+Step: 36000  Loss: 0.027082 Regul: 0.006336 Obj: 0.033418 (0.033257) Rank: 63 (63) Ttime: 5.4358 Vtime: 0.0207
+Step: 36100  Loss: 0.027085 Regul: 0.006336 Obj: 0.033421 (0.033257) Rank: 63 (63) Ttime: 5.4729 Vtime: 0.0206
+Step: 36200  Loss: 0.027065 Regul: 0.006339 Obj: 0.033404 (0.033257) Rank: 63 (63) Ttime: 5.4482 Vtime: 0.0213
+Step: 36300  Loss: 0.027020 Regul: 0.006341 Obj: 0.033361 (0.033257) Rank: 63 (63) Ttime: 5.5001 Vtime: 0.0207
+Step: 36400  Loss: 0.027091 Regul: 0.006338 Obj: 0.033429 (0.033257) Rank: 63 (63) Ttime: 5.5052 Vtime: 0.0213
+Step: 36500  Loss: 0.027062 Regul: 0.006344 Obj: 0.033405 (0.033257) Rank: 63 (63) Ttime: 5.4743 Vtime: 0.0209
+Step: 36600  Loss: 0.027094 Regul: 0.006336 Obj: 0.033429 (0.033257) Rank: 63 (63) Ttime: 5.4953 Vtime: 0.0207
+Step: 36700  Loss: 0.027153 Regul: 0.006340 Obj: 0.033493 (0.033257) Rank: 63 (63) Ttime: 5.4779 Vtime: 0.0208
+Step: 36800  Loss: 0.027062 Regul: 0.006340 Obj: 0.033402 (0.033257) Rank: 63 (63) Ttime: 5.5327 Vtime: 0.0213
+Step: 36900  Loss: 0.027046 Regul: 0.006345 Obj: 0.033390 (0.033257) Rank: 63 (63) Ttime: 5.5120 Vtime: 0.0206
+Step: 37000  Loss: 0.026991 Regul: 0.006346 Obj: 0.033338 (0.033257) Rank: 63 (63) Ttime: 5.4796 Vtime: 0.0212
+Step: 37100  Loss: 0.027007 Regul: 0.006345 Obj: 0.033352 (0.033257) Rank: 63 (63) Ttime: 5.4521 Vtime: 0.0211
+Step: 37200  Loss: 0.027050 Regul: 0.006343 Obj: 0.033393 (0.033257) Rank: 63 (63) Ttime: 5.5243 Vtime: 0.0208
+Step: 37300  Loss: 0.027056 Regul: 0.006348 Obj: 0.033403 (0.033257) Rank: 63 (63) Ttime: 5.4902 Vtime: 0.0208
+Step: 37400  Loss: 0.027096 Regul: 0.006351 Obj: 0.033447 (0.033257) Rank: 63 (63) Ttime: 5.5357 Vtime: 0.0213
+Step: 37500  Loss: 0.027192 Regul: 0.006346 Obj: 0.033539 (0.033257) Rank: 63 (63) Ttime: 5.5590 Vtime: 0.0208
+Step: 37600  Loss: 0.027099 Regul: 0.006350 Obj: 0.033450 (0.033257) Rank: 63 (63) Ttime: 5.6160 Vtime: 0.0205
+Step: 37700  Loss: 0.027101 Regul: 0.006348 Obj: 0.033449 (0.033257) Rank: 63 (63) Ttime: 5.6942 Vtime: 0.0211
+Step: 37800  Loss: 0.027091 Regul: 0.006350 Obj: 0.033441 (0.033257) Rank: 63 (63) Ttime: 5.5207 Vtime: 0.0213
+Step: 37900  Loss: 0.027059 Regul: 0.006352 Obj: 0.033411 (0.033257) Rank: 63 (63) Ttime: 5.6426 Vtime: 0.0214
+Step: 38000  Loss: 0.027059 Regul: 0.006354 Obj: 0.033413 (0.033257) Rank: 63 (63) Ttime: 5.6888 Vtime: 0.0213
+Step: 38100  Loss: 0.027094 Regul: 0.006353 Obj: 0.033447 (0.033257) Rank: 63 (63) Ttime: 5.6106 Vtime: 0.0214
+Step: 38200  Loss: 0.027086 Regul: 0.006356 Obj: 0.033442 (0.033257) Rank: 63 (63) Ttime: 5.5951 Vtime: 0.0215
+Step: 38300  Loss: 0.027064 Regul: 0.006352 Obj: 0.033417 (0.033257) Rank: 63 (63) Ttime: 5.6735 Vtime: 0.0209
+Step: 38400  Loss: 0.027021 Regul: 0.006352 Obj: 0.033373 (0.033257) Rank: 63 (63) Ttime: 5.5485 Vtime: 0.0211
+Step: 38500  Loss: 0.027048 Regul: 0.006351 Obj: 0.033398 (0.033257) Rank: 63 (63) Ttime: 5.4960 Vtime: 0.0207
+Step: 38600  Loss: 0.027105 Regul: 0.006354 Obj: 0.033459 (0.033257) Rank: 63 (63) Ttime: 5.4751 Vtime: 0.0209
+Step: 38700  Loss: 0.027072 Regul: 0.006351 Obj: 0.033422 (0.033257) Rank: 63 (63) Ttime: 5.5017 Vtime: 0.0211
+Step: 38800  Loss: 0.027042 Regul: 0.006356 Obj: 0.033398 (0.033257) Rank: 63 (63) Ttime: 5.4781 Vtime: 0.0213
+Step: 38900  Loss: 0.027062 Regul: 0.006354 Obj: 0.033416 (0.033257) Rank: 63 (63) Ttime: 5.4678 Vtime: 0.0216
+Step: 39000  Loss: 0.027125 Regul: 0.006349 Obj: 0.033474 (0.033257) Rank: 63 (63) Ttime: 5.4431 Vtime: 0.0208
+Step: 39100  Loss: 0.027106 Regul: 0.006356 Obj: 0.033462 (0.033257) Rank: 63 (63) Ttime: 5.5840 Vtime: 0.0213
+Step: 39200  Loss: 0.027138 Regul: 0.006352 Obj: 0.033490 (0.033257) Rank: 63 (63) Ttime: 5.5381 Vtime: 0.0216
+Step: 39300  Loss: 0.027135 Regul: 0.006360 Obj: 0.033495 (0.033257) Rank: 63 (63) Ttime: 5.5282 Vtime: 0.0209
+Step: 39400  Loss: 0.027063 Regul: 0.006360 Obj: 0.033423 (0.033257) Rank: 63 (63) Ttime: 5.5574 Vtime: 0.0209
+Step: 39500  Loss: 0.027024 Regul: 0.006363 Obj: 0.033387 (0.033257) Rank: 63 (63) Ttime: 5.4865 Vtime: 0.0210
+Step: 39600  Loss: 0.027019 Regul: 0.006361 Obj: 0.033380 (0.033257) Rank: 63 (63) Ttime: 5.4452 Vtime: 0.0213
+Step: 39700  Loss: 0.027003 Regul: 0.006362 Obj: 0.033365 (0.033257) Rank: 63 (63) Ttime: 5.4051 Vtime: 0.0212
+Step: 39800  Loss: 0.026974 Regul: 0.006365 Obj: 0.033339 (0.033257) Rank: 63 (63) Ttime: 5.4805 Vtime: 0.0209
+Step: 39900  Loss: 0.027019 Regul: 0.006367 Obj: 0.033386 (0.033257) Rank: 62 (63) Ttime: 5.5267 Vtime: 0.0218
+Step: 40000  Loss: 0.027044 Regul: 0.006369 Obj: 0.033413 (0.033257) Rank: 62 (63) Ttime: 5.5019 Vtime: 0.0207
+Step: 40100  Loss: 0.027038 Regul: 0.006369 Obj: 0.033407 (0.033257) Rank: 62 (63) Ttime: 5.4053 Vtime: 0.0212
+Step: 40200  Loss: 0.026997 Regul: 0.006371 Obj: 0.033368 (0.033257) Rank: 62 (63) Ttime: 5.4054 Vtime: 0.0208
+Step: 40300  Loss: 0.027014 Regul: 0.006375 Obj: 0.033390 (0.033257) Rank: 62 (63) Ttime: 5.5009 Vtime: 0.0208
+Step: 40400  Loss: 0.027024 Regul: 0.006371 Obj: 0.033395 (0.033257) Rank: 62 (63) Ttime: 5.5108 Vtime: 0.0206
+Step: 40500  Loss: 0.027075 Regul: 0.006372 Obj: 0.033447 (0.033257) Rank: 62 (63) Ttime: 5.4397 Vtime: 0.0209
+Step: 40600  Loss: 0.027061 Regul: 0.006377 Obj: 0.033438 (0.033257) Rank: 62 (63) Ttime: 5.5098 Vtime: 0.0206
+Step: 40700  Loss: 0.027140 Regul: 0.006371 Obj: 0.033511 (0.033257) Rank: 62 (63) Ttime: 5.4950 Vtime: 0.0214
+Step: 40800  Loss: 0.027129 Regul: 0.006377 Obj: 0.033506 (0.033257) Rank: 62 (63) Ttime: 5.4895 Vtime: 0.0207
+Step: 40900  Loss: 0.027147 Regul: 0.006373 Obj: 0.033520 (0.033257) Rank: 62 (63) Ttime: 5.4498 Vtime: 0.0213
+Step: 41000  Loss: 0.027121 Regul: 0.006373 Obj: 0.033494 (0.033257) Rank: 62 (63) Ttime: 5.5022 Vtime: 0.0210
+Step: 41100  Loss: 0.027082 Regul: 0.006377 Obj: 0.033459 (0.033257) Rank: 62 (63) Ttime: 5.4723 Vtime: 0.0208
+Step: 41200  Loss: 0.027099 Regul: 0.006378 Obj: 0.033477 (0.033257) Rank: 62 (63) Ttime: 5.5263 Vtime: 0.0213
+Step: 41300  Loss: 0.027085 Regul: 0.006382 Obj: 0.033467 (0.033257) Rank: 62 (63) Ttime: 5.4578 Vtime: 0.0213
+Step: 41400  Loss: 0.027056 Regul: 0.006380 Obj: 0.033436 (0.033257) Rank: 62 (63) Ttime: 5.4832 Vtime: 0.0210
+Step: 41500  Loss: 0.027045 Regul: 0.006374 Obj: 0.033419 (0.033257) Rank: 62 (63) Ttime: 5.4978 Vtime: 0.0207
+Step: 41600  Loss: 0.027100 Regul: 0.006373 Obj: 0.033474 (0.033257) Rank: 62 (63) Ttime: 5.4475 Vtime: 0.0212
+Step: 41700  Loss: 0.027093 Regul: 0.006374 Obj: 0.033467 (0.033257) Rank: 62 (63) Ttime: 5.4910 Vtime: 0.0210
+Step: 41800  Loss: 0.027089 Regul: 0.006375 Obj: 0.033465 (0.033257) Rank: 62 (63) Ttime: 5.4337 Vtime: 0.0211
+Step: 41900  Loss: 0.027060 Regul: 0.006378 Obj: 0.033438 (0.033257) Rank: 62 (63) Ttime: 5.4826 Vtime: 0.0213
+Step: 42000  Loss: 0.027008 Regul: 0.006384 Obj: 0.033392 (0.033257) Rank: 62 (63) Ttime: 5.4097 Vtime: 0.0211
+Step: 42100  Loss: 0.026986 Regul: 0.006384 Obj: 0.033370 (0.033257) Rank: 62 (63) Ttime: 5.4202 Vtime: 0.0210
+Step: 42200  Loss: 0.026960 Regul: 0.006385 Obj: 0.033345 (0.033257) Rank: 62 (63) Ttime: 5.5371 Vtime: 0.0205
+Step: 42300  Loss: 0.026974 Regul: 0.006388 Obj: 0.033361 (0.033257) Rank: 62 (63) Ttime: 5.4321 Vtime: 0.0211
+Step: 42400  Loss: 0.027000 Regul: 0.006386 Obj: 0.033386 (0.033257) Rank: 62 (63) Ttime: 5.4955 Vtime: 0.0210
+Step: 42500  Loss: 0.026993 Regul: 0.006385 Obj: 0.033378 (0.033257) Rank: 62 (63) Ttime: 5.5402 Vtime: 0.0211
+Step: 42600  Loss: 0.027007 Regul: 0.006383 Obj: 0.033390 (0.033257) Rank: 62 (63) Ttime: 5.5058 Vtime: 0.0209
+Step: 42700  Loss: 0.026933 Regul: 0.006391 Obj: 0.033323 (0.033257) Rank: 62 (63) Ttime: 5.4646 Vtime: 0.0214
+Step: 42800  Loss: 0.026924 Regul: 0.006387 Obj: 0.033311 (0.033257) Rank: 62 (63) Ttime: 5.3795 Vtime: 0.0221
+Step: 42900  Loss: 0.026943 Regul: 0.006391 Obj: 0.033334 (0.033257) Rank: 62 (63) Ttime: 5.3995 Vtime: 0.0212
+Step: 43000  Loss: 0.026990 Regul: 0.006392 Obj: 0.033382 (0.033257) Rank: 62 (63) Ttime: 5.4464 Vtime: 0.0209
+Step: 43100  Loss: 0.026958 Regul: 0.006388 Obj: 0.033346 (0.033257) Rank: 62 (63) Ttime: 5.4570 Vtime: 0.0210
+Step: 43200  Loss: 0.026928 Regul: 0.006395 Obj: 0.033322 (0.033257) Rank: 62 (63) Ttime: 5.4580 Vtime: 0.0207
+Step: 43300  Loss: 0.026875 Regul: 0.006401 Obj: 0.033276 (0.033257) Rank: 62 (63) Ttime: 5.3999 Vtime: 0.0210
+Step: 43400  Loss: 0.026939 Regul: 0.006396 Obj: 0.033336 (0.033257) Rank: 62 (63) Ttime: 5.3966 Vtime: 0.0210
+Step: 43500  Loss: 0.026925 Regul: 0.006397 Obj: 0.033321 (0.033257) Rank: 62 (63) Ttime: 5.3995 Vtime: 0.0211
+Step: 43600  Loss: 0.026945 Regul: 0.006393 Obj: 0.033338 (0.033257) Rank: 62 (63) Ttime: 5.4372 Vtime: 0.0210
+Step: 43700  Loss: 0.026907 Regul: 0.006392 Obj: 0.033298 (0.033257) Rank: 62 (63) Ttime: 5.3916 Vtime: 0.0211
+Step: 43800  Loss: 0.027031 Regul: 0.006386 Obj: 0.033417 (0.033257) Rank: 62 (63) Ttime: 5.3137 Vtime: 0.0210
+Step: 43900  Loss: 0.027014 Regul: 0.006381 Obj: 0.033395 (0.033257) Rank: 62 (63) Ttime: 5.3196 Vtime: 0.0206
+Step: 44000  Loss: 0.027019 Regul: 0.006384 Obj: 0.033403 (0.033257) Rank: 62 (63) Ttime: 5.4351 Vtime: 0.0207
+Step: 44100  Loss: 0.026987 Regul: 0.006391 Obj: 0.033378 (0.033257) Rank: 62 (63) Ttime: 5.4310 Vtime: 0.0212
+Step: 44200  Loss: 0.026997 Regul: 0.006396 Obj: 0.033393 (0.033257) Rank: 62 (63) Ttime: 5.4010 Vtime: 0.0214
+Step: 44300  Loss: 0.026958 Regul: 0.006397 Obj: 0.033355 (0.033257) Rank: 62 (63) Ttime: 5.4245 Vtime: 0.0209
+Step: 44400  Loss: 0.026947 Regul: 0.006398 Obj: 0.033345 (0.033257) Rank: 62 (63) Ttime: 5.3761 Vtime: 0.0208
+Step: 44500  Loss: 0.026922 Regul: 0.006395 Obj: 0.033317 (0.033257) Rank: 62 (63) Ttime: 5.4872 Vtime: 0.0210
+Step: 44600  Loss: 0.026992 Regul: 0.006395 Obj: 0.033387 (0.033257) Rank: 62 (63) Ttime: 5.4635 Vtime: 0.0212
+Step: 44700  Loss: 0.026970 Regul: 0.006392 Obj: 0.033361 (0.033257) Rank: 62 (63) Ttime: 5.3594 Vtime: 0.0206
+Step: 44800  Loss: 0.027023 Regul: 0.006399 Obj: 0.033422 (0.033257) Rank: 62 (63) Ttime: 5.3409 Vtime: 0.0210
+Step: 44900  Loss: 0.027002 Regul: 0.006408 Obj: 0.033411 (0.033257) Rank: 62 (63) Ttime: 5.4131 Vtime: 0.0213
+Step: 45000  Loss: 0.026992 Regul: 0.006401 Obj: 0.033393 (0.033257) Rank: 62 (63) Ttime: 5.4238 Vtime: 0.0212
+Step: 45100  Loss: 0.027025 Regul: 0.006397 Obj: 0.033422 (0.033257) Rank: 62 (63) Ttime: 5.3553 Vtime: 0.0212
+Step: 45200  Loss: 0.027041 Regul: 0.006397 Obj: 0.033438 (0.033257) Rank: 63 (63) Ttime: 5.4432 Vtime: 0.0221
+Step: 45300  Loss: 0.027019 Regul: 0.006398 Obj: 0.033416 (0.033257) Rank: 63 (63) Ttime: 5.4233 Vtime: 0.0215
+Step: 45400  Loss: 0.027001 Regul: 0.006400 Obj: 0.033401 (0.033257) Rank: 63 (63) Ttime: 5.3797 Vtime: 0.0213
+Step: 45500  Loss: 0.026994 Regul: 0.006399 Obj: 0.033393 (0.033257) Rank: 62 (63) Ttime: 5.4047 Vtime: 0.0210
+Step: 45600  Loss: 0.027007 Regul: 0.006402 Obj: 0.033409 (0.033257) Rank: 62 (63) Ttime: 5.3229 Vtime: 0.0213
+Step: 45700  Loss: 0.026939 Regul: 0.006401 Obj: 0.033340 (0.033257) Rank: 62 (63) Ttime: 5.3737 Vtime: 0.0213
+Step: 45800  Loss: 0.026959 Regul: 0.006405 Obj: 0.033364 (0.033257) Rank: 62 (63) Ttime: 5.4477 Vtime: 0.0214
+Step: 45900  Loss: 0.026957 Regul: 0.006404 Obj: 0.033362 (0.033257) Rank: 62 (63) Ttime: 5.4713 Vtime: 0.0205
+Step: 46000  Loss: 0.026970 Regul: 0.006402 Obj: 0.033372 (0.033257) Rank: 62 (63) Ttime: 5.3970 Vtime: 0.0212
+Step: 46100  Loss: 0.026979 Regul: 0.006407 Obj: 0.033386 (0.033257) Rank: 62 (63) Ttime: 5.4241 Vtime: 0.0210
+Step: 46200  Loss: 0.027003 Regul: 0.006406 Obj: 0.033410 (0.033257) Rank: 62 (63) Ttime: 5.3782 Vtime: 0.0208
+Step: 46300  Loss: 0.027005 Regul: 0.006415 Obj: 0.033420 (0.033257) Rank: 62 (63) Ttime: 5.4689 Vtime: 0.0213
+Step: 46400  Loss: 0.026942 Regul: 0.006418 Obj: 0.033361 (0.033257) Rank: 62 (63) Ttime: 5.4200 Vtime: 0.0209
+Step: 46500  Loss: 0.026882 Regul: 0.006420 Obj: 0.033302 (0.033257) Rank: 62 (63) Ttime: 5.3307 Vtime: 0.0212
+Step: 46600  Loss: 0.026898 Regul: 0.006420 Obj: 0.033318 (0.033257) Rank: 63 (63) Ttime: 5.4644 Vtime: 0.0220
+Step: 46700  Loss: 0.026932 Regul: 0.006419 Obj: 0.033352 (0.033257) Rank: 63 (63) Ttime: 5.4036 Vtime: 0.0212
+Step: 46800  Loss: 0.026965 Regul: 0.006413 Obj: 0.033378 (0.033257) Rank: 62 (63) Ttime: 5.4165 Vtime: 0.0212
+Step: 46900  Loss: 0.026995 Regul: 0.006412 Obj: 0.033407 (0.033257) Rank: 62 (63) Ttime: 5.3944 Vtime: 0.0211
+Step: 47000  Loss: 0.027005 Regul: 0.006409 Obj: 0.033414 (0.033257) Rank: 62 (63) Ttime: 5.3706 Vtime: 0.0210
+Step: 47100  Loss: 0.027012 Regul: 0.006415 Obj: 0.033428 (0.033257) Rank: 62 (63) Ttime: 5.3950 Vtime: 0.0216
+Step: 47200  Loss: 0.027030 Regul: 0.006412 Obj: 0.033443 (0.033257) Rank: 63 (63) Ttime: 5.4524 Vtime: 0.0217
+Step: 47300  Loss: 0.027036 Regul: 0.006407 Obj: 0.033443 (0.033257) Rank: 63 (63) Ttime: 5.4655 Vtime: 0.0206
+Step: 47400  Loss: 0.027053 Regul: 0.006403 Obj: 0.033457 (0.033257) Rank: 63 (63) Ttime: 5.3508 Vtime: 0.0209
+Step: 47500  Loss: 0.026997 Regul: 0.006401 Obj: 0.033398 (0.033257) Rank: 62 (63) Ttime: 5.3733 Vtime: 0.0212
+Step: 47600  Loss: 0.026970 Regul: 0.006401 Obj: 0.033371 (0.033257) Rank: 62 (63) Ttime: 5.4432 Vtime: 0.0209
+Step: 47700  Loss: 0.027019 Regul: 0.006404 Obj: 0.033422 (0.033257) Rank: 62 (63) Ttime: 5.4747 Vtime: 0.0213
+Step: 47800  Loss: 0.027048 Regul: 0.006409 Obj: 0.033456 (0.033257) Rank: 62 (63) Ttime: 5.4390 Vtime: 0.0213
+Step: 47900  Loss: 0.027072 Regul: 0.006412 Obj: 0.033484 (0.033257) Rank: 62 (63) Ttime: 5.4273 Vtime: 0.0211
+Step: 48000  Loss: 0.027102 Regul: 0.006405 Obj: 0.033508 (0.033257) Rank: 62 (63) Ttime: 5.4593 Vtime: 0.0212
+Step: 48100  Loss: 0.027125 Regul: 0.006404 Obj: 0.033528 (0.033257) Rank: 62 (63) Ttime: 5.5839 Vtime: 0.0209
+Step: 48200  Loss: 0.027113 Regul: 0.006408 Obj: 0.033521 (0.033257) Rank: 62 (63) Ttime: 5.5113 Vtime: 0.0208
+Step: 48300  Loss: 0.027095 Regul: 0.006404 Obj: 0.033498 (0.033257) Rank: 62 (63) Ttime: 5.6308 Vtime: 0.0212
+Step: 48400  Loss: 0.027124 Regul: 0.006400 Obj: 0.033525 (0.033257) Rank: 62 (63) Ttime: 5.5994 Vtime: 0.0211
+Step: 48500  Loss: 0.027074 Regul: 0.006402 Obj: 0.033475 (0.033257) Rank: 62 (63) Ttime: 5.5274 Vtime: 0.0211
+Step: 48600  Loss: 0.027102 Regul: 0.006401 Obj: 0.033503 (0.033257) Rank: 63 (63) Ttime: 5.5629 Vtime: 0.0216
+Step: 48700  Loss: 0.027067 Regul: 0.006406 Obj: 0.033473 (0.033257) Rank: 63 (63) Ttime: 5.5459 Vtime: 0.0212
+Step: 48800  Loss: 0.027101 Regul: 0.006407 Obj: 0.033508 (0.033257) Rank: 63 (63) Ttime: 5.5312 Vtime: 0.0211
+Step: 48900  Loss: 0.027112 Regul: 0.006405 Obj: 0.033517 (0.033257) Rank: 63 (63) Ttime: 5.6092 Vtime: 0.0207
+Step: 49000  Loss: 0.027033 Regul: 0.006405 Obj: 0.033437 (0.033257) Rank: 63 (63) Ttime: 5.5237 Vtime: 0.0217
+Step: 49100  Loss: 0.027089 Regul: 0.006403 Obj: 0.033492 (0.033257) Rank: 63 (63) Ttime: 5.4780 Vtime: 0.0214
+Step: 49200  Loss: 0.027104 Regul: 0.006406 Obj: 0.033510 (0.033257) Rank: 63 (63) Ttime: 5.5126 Vtime: 0.0211
+Step: 49300  Loss: 0.027073 Regul: 0.006412 Obj: 0.033484 (0.033257) Rank: 63 (63) Ttime: 5.5406 Vtime: 0.0209
+Step: 49400  Loss: 0.027066 Regul: 0.006410 Obj: 0.033476 (0.033257) Rank: 63 (63) Ttime: 5.5059 Vtime: 0.0208
+Step: 49500  Loss: 0.027096 Regul: 0.006403 Obj: 0.033499 (0.033257) Rank: 63 (63) Ttime: 5.4259 Vtime: 0.0211
+Step: 49600  Loss: 0.027076 Regul: 0.006402 Obj: 0.033479 (0.033257) Rank: 63 (63) Ttime: 5.5166 Vtime: 0.0209
+Step: 49700  Loss: 0.027064 Regul: 0.006402 Obj: 0.033466 (0.033257) Rank: 63 (63) Ttime: 5.5837 Vtime: 0.0214
+Step: 49800  Loss: 0.027028 Regul: 0.006407 Obj: 0.033436 (0.033257) Rank: 63 (63) Ttime: 5.4736 Vtime: 0.0211
+Step: 49900  Loss: 0.027073 Regul: 0.006406 Obj: 0.033479 (0.033257) Rank: 63 (63) Ttime: 5.6244 Vtime: 0.0211
+Step: 50000  Loss: 0.027039 Regul: 0.006406 Obj: 0.033445 (0.033257) Rank: 63 (63) Ttime: 5.5095 Vtime: 0.0215

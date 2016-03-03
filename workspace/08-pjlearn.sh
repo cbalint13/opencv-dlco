@@ -7,7 +7,7 @@
 for f in `find . -name *-unproj.h5 | sed -e 's|\.\/||g' -e 's|-unproj.h5||g'`
   do
 
-  for mu in 0.0010 0.0020 0.0030
+  for mu in 0.0005 0.0010 0.0020 0.0030
     do
 
     for gamma in 0.050 0.250 0.500 1.000
