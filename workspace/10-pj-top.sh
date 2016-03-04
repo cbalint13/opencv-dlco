@@ -6,11 +6,11 @@
 
 
 echo
-echo "TOP 10 minimisers:"
+echo "TOP minimisers:"
 
 rm -f pj-top10.log
 echo >> pj-top10.log
-echo "TOP 10 minimisers:" >> pj-top10.log
+echo "TOP minimisers:" >> pj-top10.log
 
 entry=''
 for m in `cat pj-select*.log | grep ModelStat | awk '{print $8}'`
@@ -36,5 +36,5 @@ do
 
 done
 
-echo "$list" | sed -e 's|\||\n|g' -e 's|\\\[||g'  -e 's|\\\]||g' -e "s|(||g" -e "s|)-||g" | sort -n | sed -n -e '1,11p'
-echo "$list" | sed -e 's|\||\n|g' -e 's|\\\[||g'  -e 's|\\\]||g' -e "s|(||g" -e "s|)-||g" | sort -n | sed -n -e '1,11p' >> pj-top10.log
+echo "$list" | sed -e 's|\||\n|g' -e 's|\\\[||g'  -e 's|\\\]||g' -e "s|(||g" -e "s|)-||g" | sort -n
+echo "$list" | sed -e 's|\||\n|g' -e 's|\\\[||g'  -e 's|\\\]||g' -e "s|(||g" -e "s|)-||g" | sort -n >> pj-top10.log
