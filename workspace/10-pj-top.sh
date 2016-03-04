@@ -6,11 +6,11 @@
 
 
 echo
-echo "TOP 10 minimiser:"
+echo "TOP 10 minimisers:"
 
 rm -f pj-top10.log
 echo >> pj-top10.log
-echo "TOP 10 minimiesr:" >> pj-top10.log
+echo "TOP 10 minimisers:" >> pj-top10.log
 
 entry=''
 for m in `cat pj-select*.log | grep ModelStat | awk '{print $8}'`
