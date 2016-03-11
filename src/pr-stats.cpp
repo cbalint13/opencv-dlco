@@ -132,37 +132,6 @@ int main( int argc, char **argv )
 
     h5fl->close();
 
-    int iPR = 0;
-    Mat nPRInRing(RingParams.rows, 1, CV_32F, cvScalar(0.0f));
-    for (int iRing = 0; iRing < RingParams.rows; iRing++)
-    {
-      Mat RingPRs = PRParams.rowRange(iPR, iPR + 8).clone();
-
-      // % nPRInRing(iRing) = size(unique(RingPRs, 'rows'), 1);
-
-      int dup_rows = 0;
-      for (int i = 0; i < RingPRs.rows; i++) {
-        int isInside = false;
-        for (int j = 0; j < RingPRs.rows; j++) {
-          if (i == j) continue;
-          int count = 0;
-          for (int k = 0; k < RingPRs.cols; k++)
-            if( RingPRs.at<float>(i, k) ==
-                    RingPRs.at<float>(j, k) )
-                count ++;
-            if (count == RingPRs.cols)
-                isInside = true;
-        }
-        if (isInside == true)
-          dup_rows++;
-      }
-
-      nPRInRing.at<float>(iRing, 0) = RingPRs.rows - (dup_rows / 2);;
-
-      iPR = iPR + 8;
-    }
-
-
     // {FPR95, DIM, nPR, NZIDX, IDModelSet, IDTestSet}
     typedef array<float, 7> ModelParam;
     multimap<double, ModelParam> ModelsCollection;
