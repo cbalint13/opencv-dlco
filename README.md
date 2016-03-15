@@ -54,7 +54,7 @@ IEEE Transactions on Pattern Analysis and Machine Intelligence, 2011
 15-Mar-2016
 
  - Projection matrix learnt over exhaustive 9x45 combinations of mu & gamma regularizers.
- - Search space was enough to cover and find best minimisers for 120, 80, 64, 48 dimensions.
+ - Search space was enough to cover and find best minimizers for 120, 80, 64, 48 dimensions.
 
 03-Mar-2016
 
