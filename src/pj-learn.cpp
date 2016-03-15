@@ -86,7 +86,6 @@ int main( int argc, char **argv )
     // % gamma = 1;
 
     // hyperparams
-    int MaxDim = 80;
     float mu = 0.001f;
     float gamma = 0.500;
     unsigned int nIter = 50000;
@@ -127,12 +126,6 @@ int main( int argc, char **argv )
             i++;
             continue;
         }
-        if ( strcmp(argv[i], "-maxdim") == 0 )
-        {
-            MaxDim = atoi(argv[i+1]);
-            i++;
-            continue;
-        }
         if ( strcmp(argv[i], "-iters") == 0 )
         {
             nIter = atoi(argv[i+1]);
@@ -166,14 +159,12 @@ int main( int argc, char **argv )
         cout << "Usage: pr-learn  src_h5_dist_file dst_h5_output_file" << endl;
         cout << "       -mu <0.0-1.0, 0.025=default> " << endl;
         cout << "       -gamma <0.0-10.0, 0.10=default> " << endl;
-        cout << "       -maxdim <10-256, 80=default> " << endl;
         cout << "       -iters <0-N, 5000000=default> " << endl;
         cout << endl;
         exit( 1 );
     }
     cout << "mu: " << mu
          << " gamma: " << gamma
-         << " maxdim: " << MaxDim
          << " nIters: " << nIter
     << endl;
 
@@ -575,12 +566,12 @@ int main( int argc, char **argv )
             A_Save = A.clone();
 
             // log as saved
-            printf( "Stat: Dim/MaxDim [%i/%i] AUC: %.6f (%.6f) FPR95: %.2f (%.2f) [saved]\n",
-                    Dim, MaxDim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
+            printf( "Stat: Dim [%i] AUC: %.6f (%.6f) FPR95: %.2f (%.2f) [saved]\n",
+                    Dim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
 
           } else {
-            printf( "Stat: Dim/MaxDim [%i/%i] AUC: %.6f (%.6f) FPR95: %.2f (%.2f)\n",
-                    Dim, MaxDim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
+            printf( "Stat: Dim [%i] AUC: %.6f (%.6f) FPR95: %.2f (%.2f)\n",
+                    Dim, AUC, AUC_Best, FPR95*100, FPR95_Best*100 );
           }
         } else {
             printf( "Step: %i  Loss: %.6f Regul: %.6f Obj: %.6f (%.6f) Rank: %i (%i) Ttime: %.4f Vtime: %.4f\n",
