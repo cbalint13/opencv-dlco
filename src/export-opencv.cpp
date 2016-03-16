@@ -217,19 +217,19 @@ int main( int argc, char **argv )
     fprintf( out, "\n" );
 
     fprintf( out, "// PR orig rows\n" );
-    fprintf( out, "const int PRrows = %i;\n", sPRFilters.rows );
+    fprintf( out, "static const int PRrows = %i;\n", sPRFilters.rows );
 
     fprintf( out, "\n" );
 
     fprintf( out, "// PR orig cols\n" );
-    fprintf( out, "const int PRcols = %i;\n", sPRFilters.cols );
+    fprintf( out, "static const int PRcols = %i;\n", sPRFilters.cols );
 
     fprintf( out, "\n" );
 
     int idx, start, count, total;
 
     fprintf( out, "// PR indexes & len\n" );
-    fprintf( out, "const unsigned int PRidx[] =\n" );
+    fprintf( out, "static const unsigned int PRidx[] =\n" );
 
     idx = 0;
     start = -1; count = 0;
@@ -273,7 +273,7 @@ int main( int argc, char **argv )
     fprintf( out, "\n" );
 
     fprintf( out, "// PR matrix\n" );
-    fprintf( out, "const unsigned int PR[] =\n" );
+    fprintf( out, "static const unsigned int PR[] =\n" );
 
     count = 1;
     total = countNonZero( sPRFilters );
@@ -305,17 +305,17 @@ int main( int argc, char **argv )
     fprintf( out, "\n" );
 
     fprintf( out, "// PJ orig rows\n" );
-    fprintf( out, "const int PJrows = %i;\n", W.rows );
+    fprintf( out, "static const int PJrows = %i;\n", W.rows );
 
     fprintf( out, "\n" );
 
     fprintf( out, "// PJ orig cols\n" );
-    fprintf( out, "const int PJcols = %i;\n", W.cols );
+    fprintf( out, "static const int PJcols = %i;\n", W.cols );
 
     fprintf( out, "\n" );
 
     fprintf( out, "// PJ indexes & len\n" );
-    fprintf( out, "const unsigned int PJidx[] =\n" );
+    fprintf( out, "static const unsigned int PJidx[] =\n" );
 
     idx = 0;
     start = -1; count = 0;
@@ -359,7 +359,7 @@ int main( int argc, char **argv )
     fprintf( out, "\n" );
 
     fprintf( out, "// PJ sparse elements\n" );
-    fprintf( out, "const unsigned int PJ[] =\n" );
+    fprintf( out, "static const unsigned int PJ[] =\n" );
 
     count = 1;
     total = countNonZero( W );
