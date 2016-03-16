@@ -4,7 +4,7 @@
 ## This script will learn projection matrix
 ##
 
-for f in `find . -name *-unproj.h5 | sed -e 's|\.\/||g' -e 's|-unproj.h5||g'`
+for f in `find . -name *-unproj.h5 | sed -e 's|\.\/||g' -e 's|-unproj.h5||g' | grep -v rank`
   do
 
   for mu in 0.0001 0.0005 0.0010 0.0020 0.0030

@@ -9,7 +9,10 @@ do
 
   for pr in 'pr-learn/olderbest/yosemite-0.025-0.075-pr.h5#7' \
             'pr-learn/notredame-0.003-0.040-pr.h5#7' \
-            'pr-learn/liberty-0.035-0.250-pr.h5#7'
+            'pr-learn/liberty-0.035-0.250-pr.h5#7' \
+            'pr-learn/originals/liberty-rank_m0.5_g8-pr.h5' \
+            'pr-learn/originals/notredame-rank_m0.15_g0.5-pr.h5' \
+            'pr-learn/originals/yosemite-rank_m0.25_g4-pr.h5'
   do
 
     pr_fl=$(echo $pr | cut -d'#' -f1)
