@@ -59,3 +59,6 @@ TARGET_LINK_LIBRARIES(pj-learn ${OpenCV_LIBS} ${CUDA_CUDART_LIBRARY} ${OpenBLAS_
 
 ADD_EXECUTABLE(export-opencv $<TARGET_OBJECTS:misc> export-opencv.cpp)
 TARGET_LINK_LIBRARIES(export-opencv ${OpenCV_LIBS})
+
+#ADD_EXECUTABLE(pj-stats $<TARGET_OBJECTS:misc> $<TARGET_OBJECTS:vgg> pj-stats.cpp)
+#TARGET_LINK_LIBRARIES(pj-stats ${OpenCV_LIBS})
